@@ -1,18 +1,20 @@
+@import './theme.css';
+
 .home-container {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f7f7f7;
+  background: var(--theme-white);
   min-height: 100vh;
 }
 
 .navbar {
-  background: #222;
+  background: var(--theme-black);
   padding: 1rem 0;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
@@ -22,7 +24,7 @@
 }
 
 .navbar a {
-  color: #fff;
+  color: var(--theme-white);
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
@@ -30,39 +32,62 @@
 }
 
 .navbar a:hover {
-  color: #61dafb;
+  color: var(--secondary-light);
 }
 
 .profile {
-  text-align: center;
   margin-top: 3rem;
+  display: flex;
+  justify-content: center;
 }
 
-.profile-photo {
-  width: 160px;
-  height: 160px;
+.profile-header {
+  display: flex;
+}
+
+.profile-text {
+  margin-left: 2rem;
+  text-align: left;
+}
+
+.profile-content-float {
+  overflow: hidden;
+}
+
+.profile-photo-float {
+  float: left;
+  width: 245px;
+  height: 245px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px var(--color-profile-shadow);
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.profile-description-float {
+  font-size: 1.2rem;
+  color: var(--theme-black);
+  text-align: left;
+  width: 44rem;
 }
 
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  align-self: flex-start
 }
 
 p {
-  font-size: 1.2rem;
-  color: #444;
+  font-size: 1.25rem;
+  color: var(--theme-black);
   margin-bottom: 1.5rem;
 }
 
 .resume-link {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background: #61dafb;
-  color: #222;
+  background: var(--secondary-light);
   border-radius: 24px;
   text-decoration: none;
   font-weight: 600;
@@ -70,6 +95,18 @@ p {
 }
 
 .resume-link:hover {
-  background: #21a1f3;
-  color: #fff;
+  background: var(--secondary-dark);
+  color: var(--theme-white) !important;
+}
+
+.download-logo {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.fox-animation {
+  width: 100px;
+  height: 100px;
 }

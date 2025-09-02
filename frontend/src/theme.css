@@ -1,0 +1,9 @@
+:root {
+  --theme-white: #fff9f3;
+  --theme-black: #292929;
+  --primary-dark: #7b9247;
+  --primary-light: #a5b76c;
+  --secondary-light: #e67a2e;
+  --secondary-dark: #d4671a;
+  --color-profile-shadow: rgba(0,0,0,0.40);
+}
