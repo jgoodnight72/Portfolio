@@ -62,20 +62,6 @@ function Home() {
 
   return (
     <div className="home-container">
-      <nav className="navbar">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li>
-            <a href="/Jennifer-Traeger-Resume.pdf" download className="resume-link">
-              <img className="download-logo" src="/download_logo.png" alt="Download"/>
-              Resume
-            </a>
-          </li>
-        </ul>
-      </nav>
       <div className="profile">
         <div className="profile-content-float">
           <img src="/profile.jpeg" alt="Jennifer Traeger" className="profile-photo-float" />
