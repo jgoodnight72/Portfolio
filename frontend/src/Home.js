@@ -84,7 +84,11 @@ function Home() {
         </div>
         <div className="icons-grid">
           {selectedSkill && skillIcons[selectedSkill] && skillIcons[selectedSkill].map((item, idx) => (
-            <div className="icon-card" key={idx}>
+            <div
+              className={`icon-card animate-glide`}
+              key={`${selectedSkill}-${idx}`}
+              style={{ animationDelay: `${idx * 0.12}s` }}
+            >
               <div className="icon">{item.icon}</div>
               <div className="label">{item.label}</div>
             </div>

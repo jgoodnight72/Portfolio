@@ -123,6 +123,16 @@ p {
   background: var(--theme-white);
   border-radius: 16px;
   margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: glideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes glideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .skill-icon {
