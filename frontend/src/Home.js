@@ -38,6 +38,24 @@ function Home() {
   };
   const skillCategories = Object.keys(skillIcons);
   const [selectedSkill, setSelectedSkill] = useState(skillCategories[0]);
+  const opusWorkHistory = [
+    "Concurrent, full-stack development and maintenance of four public facing websites such as wisconsinvip2.org and ctemissions.com, on a small team of four developers",
+    "Collaborate closely with Project Managers, QA, Technical Leads, and Business Stakeholders to design and implement features that support balance between code reusability and specific customer requirements",
+    "Displayed ownership of my software quality by writing comprehensive automated tests to ensure consistent, reliable performance",
+    "Independently streamlined and documented deployment processes, later adopted by other teams, improving cross-team efficiency and consistency"
+  ]
+  const cigWorkHistory = [
+    "Collaborate with an agile team of twelve to design, develop, maintain and test two full-stack web/desktop applications",
+    "Established and documented a standardized training program for three junior developers to assist with onboarding and mentorship"
+  ]
+  const cigInternshipHistory = [
+    "",
+    ""
+  ]
+  const educationHistory = [
+    "",
+    ""
+  ]
 
   return (
     <div className="home-container">
@@ -77,14 +95,19 @@ function Home() {
         <div className="accordion">
           {[{
             company: 'Opus Inspections',
-            role: 'Full-Stack Software Developer',
-            years: '2020 - Present',
-            details: 'Public Websites team. Built and maintained web applications, integrated third-party services, and led sprint-driven development.'
+            role: 'Software Developer',
+            years: '2023 - Present',
+            details: opusWorkHistory
+          }, {
+            company: 'Capital Insurance Group',
+            role: 'Software Developer II',
+            years: '2021 - 2023',
+            details: cigWorkHistory
           }, {
             company: 'Tech Solutions Inc.',
             role: 'Software Engineer',
             years: '2018 - 2020',
-            details: 'Worked on enterprise backend systems, database design, and API development.'
+            details: cigInternshipHistory
           }].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
           ))}
@@ -97,7 +120,7 @@ function Home() {
             company: 'Eastern Washington University',
             role: 'BS in Computer Science',
             years: '2015 - 2019',
-            details: 'Public Websites team. Built and maintained web applications, integrated third-party services, and led sprint-driven development.'
+            details: educationHistory
           }].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
           ))}
@@ -142,7 +165,9 @@ function AccordionItem({ job }) {
       </button>
       {open && (
         <div className="accordion-content">
-          {job.details}
+          {Array.isArray(job.details)
+            ? <ul>{job.details.map((item, i) => <li key={i}>{item}</li>)}</ul>
+            : job.details}
         </div>
       )}
     </div>

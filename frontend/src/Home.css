@@ -5,8 +5,8 @@
 .home-container {
   background: var(--theme-white);
   min-height: 100vh;
+  padding-bottom: 10rem;
 }
-
 
 h1 {
   font-size: 2.5rem;
@@ -24,7 +24,8 @@ h3 {
     font-size: 2rem;
     align-self: flex-start;
     margin-left: 2rem;
-    color: var(--theme-white)
+    margin-bottom: 1rem;
+    color: var(--theme-white);
 }
 
 p {
@@ -105,25 +106,34 @@ p {
   text-align: left;
   font-size: 1.2rem;
   font-weight: bold;
-  padding: 1rem 0;
+  padding: 1rem;
   cursor: pointer;
   color: var(--primary-dark);
   transition: background 0.2s;
 }
 
-.accordion-title:hover {
-  background: var(--primary-light);
-}
-
 .accordion-item.open .accordion-title {
   background: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 4px;
 }
 
 .accordion-content {
-  padding: 0.75rem 0 1.5rem 0;
+  padding: 0.75rem 0.5rem 1.5rem 0;
   color: var(--theme-black);
   font-size: 1rem;
-  animation: fadeInAccordion 0.4s;
+  opacity: 1;
+  transition: opacity 0.8s, transform 0.8s;
+}
+.accordion-content.fade-in {
+  animation: fadeInAccordion 0.8s;
+}
+.accordion-content.fade-out {
+  animation: fadeOutAccordion 0.8s;
+}
+@keyframes fadeOutAccordion {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
 }
 
 @keyframes fadeInAccordion {
@@ -131,12 +141,16 @@ p {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.accordion-content ul li {
+  margin-bottom: 0.5rem;
+}
+
 
 /* Skills Section */
 
 .skills {
   margin-top: 3rem;
-  background-color: var(--primary-light);
+  background-color: var(--secondary-light);
   width: 704px;
   margin-left: auto;
   margin-right: auto;
@@ -148,10 +162,11 @@ p {
 
 .btn-skills {
   margin: 1rem;
+  margin-bottom: 2.25rem;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
-  background: var(--primary-dark);
+  background: var(--secondary-dark);
   color: var(--theme-white);
   cursor: pointer;
   transition: background 0.3s;
@@ -160,14 +175,14 @@ p {
 }
 
 .btn-skills:hover {
-  background: var(--primary-light);
-  outline: 3px solid var(--primary-dark);
+  background: var(--secondary-light);
+  outline: 3px solid var(--secondary-dark);
   outline-offset: -3px;
 }
 
 .btn-skills.active {
-  background: var(--primary-light);
-  outline: 3px solid var(--primary-dark);
+  background: var(--secondary-light);
+  outline: 3px solid var(--secondary-dark);
   outline-offset: -3px;
 }
 
@@ -211,5 +226,5 @@ p {
 
 .label {
   font-size: 1rem;
-  color: var(--color-text);
+  color: var(--theme-black);
 }
