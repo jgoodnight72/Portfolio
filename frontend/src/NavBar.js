@@ -12,7 +12,7 @@ function NavBar() {
         <li><Link to="/contact">Contact</Link></li>
         <li>
           <a href="/Jennifer-Traeger-Resume.pdf" download className="resume-link">
-            <img className="download-logo" src="/download_logo.png" alt="Download"/>
+            <img className="download-logo" src="/global/download_logo.png" alt="Download"/>
             Resume
           </a>
         </li>
