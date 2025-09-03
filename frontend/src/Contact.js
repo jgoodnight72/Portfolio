@@ -10,7 +10,7 @@ function Contact() {
                 <h2>Contact Me</h2>
                 <p>I am always open to new opportunities. Feel free to reach out using any of the following!</p>
             </div>
-            <form className="contact-form">
+            <form className="contact-form" action="https://formsubmit.co/jgoodnight7272@gmail.com" method="POST">
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
                 <label htmlFor="email">Email:</label>

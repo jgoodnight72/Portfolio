@@ -52,6 +52,7 @@ p {
   font-size: 1rem;
   color: var(--theme-black);
   transition: background-color 0.3s;
+  font-family: monospace;
 }
 
 .contact-form input:-webkit-autofill,
