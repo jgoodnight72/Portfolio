@@ -9,19 +9,19 @@
   padding-top: 3rem;
 }
 
-h1 {
+.home-container h1 {
   font-size: 2.5rem;
   align-self: flex-start;
   color: var(--theme-black);
 }
 
-h2 {
+.home-container h2 {
   font-size: 2rem;
   align-self: flex-start;
   color: var(--theme-black);
 }
 
-h3 {
+.home-container h3 {
     font-size: 2rem;
     align-self: flex-start;
     margin-left: 2rem;
@@ -29,7 +29,7 @@ h3 {
     color: var(--theme-white);
 }
 
-p {
+.home-container p {
   font-size: 1.25rem;
   color: var(--theme-black);
   margin-bottom: 1.5rem;

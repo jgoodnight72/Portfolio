@@ -17,13 +17,26 @@
   color: var(--theme-black);
 }
 
-p {
+.contact-container p {
   font-size: 1.25rem;
   color: var(--theme-black);
   margin-bottom: 1.5rem;
-  max-width: 600px;
 }
 
+
+.contact-header {
+  display: flex;
+  align-items: center;
+}
+
+.contact-header-text {
+  width: 400px;
+  margin-right: 30px;
+}
+
+.pointer-animation {
+  width: 160px;
+}
 
 /* Contact Form Section */
 

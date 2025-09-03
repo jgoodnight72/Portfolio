@@ -1,14 +1,19 @@
 import React from 'react';
 import './App.css';
 import './Contact.css';
+import Lottie from 'lottie-react';
+import mapPointer from './map_pointer.json';
 
 function Contact() {
   return (
     <div className="contact-container">
         <div>
-            <div>
-                <h2>Contact Me</h2>
-                <p>I am always open to new opportunities. Feel free to reach out using any of the following!</p>
+            <div className="contact-header">
+                <div className="contact-header-text">
+                    <h2>Contact Me</h2>
+                    <p>I am always open to new opportunities. Feel free to reach out using any of the following!</p>
+                </div>
+                <Lottie className="pointer-animation" animationData={mapPointer} />
             </div>
             <form className="contact-form" action="https://formsubmit.co/jgoodnight7272@gmail.com" method="POST">
                 <label htmlFor="name">Name:</label>
