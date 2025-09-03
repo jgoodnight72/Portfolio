@@ -6,6 +6,7 @@ import './Home.css';
 import './NavBar.css';
 
 function Home() {
+  const yearsExperience = new Date().getFullYear() - 2021;
   const skillIcons = {
     Frontend: [
       { icon: <img className="skill-icon" src="/skills/react.svg" alt="React" />, label: 'React' },
@@ -71,7 +72,7 @@ function Home() {
           </div>
           <p className="profile-description-float">
             I am a <strong>Full-Stack Software Developer</strong> on the Public Websites team at Opus Inspections with 
-            <strong> 5 years of experience</strong>. I thrive in fast-paced, sprint-driven environments where 
+            <strong> {yearsExperience} years of experience</strong>. I thrive in fast-paced, sprint-driven environments where 
             meeting deadlines is essential, and I bring strong organizational skills that result in highly reusable, 
             maintainable solutions. Multifaceted across databases, user interfaces, and third-party integrations, I take 
             pride in building software that balances technical precision with real-world impact. I hold a <strong>Bachelor’s 
