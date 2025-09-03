@@ -34,7 +34,8 @@ function Home() {
       { icon: <img className="skill-icon" src="/skills/atlassian.svg" alt="Atlassian" />, label: 'Atlassian' },
     ]
   };
-  const [selectedSkill, setSelectedSkill] = useState(null);
+  const skillCategories = Object.keys(skillIcons);
+  const [selectedSkill, setSelectedSkill] = useState(skillCategories[0]);
 
   return (
     <div className="home-container">
@@ -75,7 +76,7 @@ function Home() {
           {Object.keys(skillIcons).map(skill => (
             <button
               key={skill}
-              className="btn-skills"
+              className={`btn-skills${selectedSkill === skill ? ' active' : ''}`}
               onClick={() => setSelectedSkill(skill)}
             >
               {skill}

@@ -107,6 +107,13 @@ p {
   outline-offset: -3px;
 }
 
+.btn-skills.active {
+  background: var(--primary-light);
+  outline: 3px solid var(--primary-dark);
+  outline-offset: -3px;
+}
+
+
 .icons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
