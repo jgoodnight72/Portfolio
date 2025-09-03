@@ -1,0 +1,51 @@
+.navbar {
+  background: var(--theme-black);
+  padding: 1rem 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 1.5rem;
+}
+
+.navbar a {
+  color: var(--theme-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: var(--secondary-light);
+}
+
+.resume-link {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--secondary-light);
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.resume-link:hover {
+  background: var(--secondary-dark);
+  color: var(--theme-white) !important;
+}
+
+.download-logo {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+}

@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Lottie from 'lottie-react';
 import foxHello from './fox_hello.json';
 import './Home.css';
+import './NavBar.css';
 
 function Home() {
+  const skillIcons = {
+    Frontend: [
+      { icon: <img className="skill-icon" src="/skills/react.svg" alt="React" />, label: 'React' },
+      { icon: <img className="skill-icon" src="/skills/html.svg" alt="CSS/HTML" />, label: 'HTML/CSS' },
+      { icon: <img className="skill-icon" src="/skills/javascript.svg" alt="JavaScript" />, label: 'JavaScript' },
+    ],
+    Backend: [
+      { icon: <img className="skill-icon" src="/skills/dotnet.svg" alt=".NET" />, label: 'C#/VB.NET' },
+      { icon: <img className="skill-icon" src="/skills/database.svg" alt="Microsoft SQL Server" />, label: 'SQL' },
+      { icon: <img className="skill-icon" src="/skills/javascript.svg" alt="Java" />, label: 'Java' },
+      { icon: <img className="skill-icon" src="/skills/springboot.svg" alt="Spring Boot" />, label: 'Spring Boot' },
+    ],
+    DevOps: [
+      { icon: <img className="skill-icon" src="/skills/aws.svg" alt="AWS" />, label: 'AWS' },
+      { icon: <img className="skill-icon" src="/skills/docker.svg" alt="Docker" />, label: 'Docker' },
+      { icon: <img className="skill-icon" src="/skills/jenkins.svg" alt="Jenkins" />, label: 'Jenkins' },
+    ],
+    Practices: [
+      { icon: <img className="skill-icon" src="/skills/agile.svg" alt="Agile" />, label: 'Agile/Scrum' },
+      { icon: <img className="skill-icon" src="/skills/OOP.svg" alt="OOP" />, label: 'OOP' },
+      { icon: <img className="skill-icon" src="/skills/TDD.svg" alt="TDD" />, label: 'TDD' },
+    ],
+    Tools: [
+      { icon: <img className="skill-icon" src="/skills/VS.svg" alt="Visual Studio" />, label: 'Visual Studio' },
+      { icon: <img className="skill-icon" src="/skills/intellijidea.svg" alt="IntelliJ IDEA" />, label: 'IntelliJ IDEA' },
+      { icon: <img className="skill-icon" src="/skills/github.svg" alt="GitHub" />, label: 'GitHub' },
+      { icon: <img className="skill-icon" src="/skills/atlassian.svg" alt="Atlassian" />, label: 'Atlassian' },
+    ]
+  };
+  const [selectedSkill, setSelectedSkill] = useState(null);
+
   return (
     <div className="home-container">
       <nav className="navbar">
@@ -35,6 +67,28 @@ function Home() {
             pride in building software that balances technical precision with real-world impact. I hold a <strong>Bachelor’s 
             Degree in Computer Science</strong> from Eastern Washington University. 
           </p>
+        </div>
+      </div>
+      <div className="skills">
+        <h2>My Skills</h2>
+        <div>
+          {Object.keys(skillIcons).map(skill => (
+            <button
+              key={skill}
+              className="btn-skills"
+              onClick={() => setSelectedSkill(skill)}
+            >
+              {skill}
+            </button>
+          ))}
+        </div>
+        <div className="icons-grid">
+          {selectedSkill && skillIcons[selectedSkill] && skillIcons[selectedSkill].map((item, idx) => (
+            <div className="icon-card" key={idx}>
+              <div className="icon">{item.icon}</div>
+              <div className="label">{item.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
