@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
 import foxHello from './fox_hello.json';
 import './Home.css';
@@ -49,12 +50,14 @@ function Home() {
     "Established and documented a standardized training program for three junior developers to assist with onboarding and mentorship"
   ]
   const cigInternshipHistory = [
-    "",
-    ""
+    "Wrote an automated test suite that reduced bugs and manual testing time",
+    "Write SQL scripts and update SQL packages to resolve bugs",
+    "Featured as Intern of the Month on company newsletter and website"
   ]
   const educationHistory = [
-    "",
-    ""
+    "Graduated 2021 Cum Laude and BSCS Outstanding Student Award Recipient",
+    "Placed 2nd in EWU Programming Competition",
+    "BA in Music with Emphasis in Piano"
   ]
 
   return (
@@ -104,9 +107,9 @@ function Home() {
             years: '2021 - 2023',
             details: cigWorkHistory
           }, {
-            company: 'Tech Solutions Inc.',
-            role: 'Software Engineer',
-            years: '2018 - 2020',
+            company: 'Capital Insurance Group',
+            role: 'Technology Associate',
+            years: '2020 - 2021',
             details: cigInternshipHistory
           }].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
@@ -119,7 +122,7 @@ function Home() {
           {[{
             company: 'Eastern Washington University',
             role: 'BS in Computer Science',
-            years: '2015 - 2019',
+            years: '2017 - 2021',
             details: educationHistory
           }].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
@@ -163,13 +166,22 @@ function AccordionItem({ job }) {
       <button className="accordion-title" onClick={() => setOpen(!open)}>
         <span>{job.company}</span> — <span>{job.role}</span> <span style={{float: 'right'}}>{job.years}</span>
       </button>
-      {open && (
-        <div className="accordion-content">
-          {Array.isArray(job.details)
-            ? <ul>{job.details.map((item, i) => <li key={i}>{item}</li>)}</ul>
-            : job.details}
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            className="accordion-content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.7, ease: [0.2, 0, 0.2, 0.8] }}
+            style={{ overflow: 'hidden' }}
+          >
+            {Array.isArray(job.details)
+              ? <ul>{job.details.map((item, i) => <li key={i}>{item}</li>)}</ul>
+              : job.details}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
