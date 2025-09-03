@@ -5,21 +5,32 @@ import './Contact.css';
 function Contact() {
   return (
     <div className="contact-container">
-      <h2>Contact Me</h2>
-      <p>You can reach me at:</p>
-      <ul>
-        <li>Email: <a href="mailto:jennifer.traeger@email.com">jennifer.traeger@email.com</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/jennifertraeger" target="_blank" rel="noopener noreferrer">linkedin.com/in/jennifertraeger</a></li>
-      </ul>
-      <form className="contact-form">
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-        <label htmlFor="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+        <div>
+            <div>
+                <h2>Contact Me</h2>
+                <p>I am always open to new opportunities. Feel free to reach out using any of the following!</p>
+            </div>
+            <form className="contact-form">
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <label htmlFor="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <div className="logos">
+                <a href="mailto:jgoodnight7272@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <img src="/email-logo.png" alt="Email Logo"/>
+                </a>
+                <a href="https://www.linkedin.com/in/jtraeger/" target="_blank" rel="noopener noreferrer">
+                    <img src="/linkedin-logo.png" alt="LinkedIn Logo" />
+                </a>
+                <a href="https://github.com/jgoodnight72" target="_blank" rel="noopener noreferrer">
+                    <img src="/git-logo.png" alt="GitHub Logo" />
+                </a>
+            </div>
+        </div>
     </div>
   );
 }
