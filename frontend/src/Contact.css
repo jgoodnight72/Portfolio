@@ -19,7 +19,7 @@
 
 .contact-container p {
   font-size: 1.25rem;
-  color: var(--theme-black);
+  color: var(--theme-grey);
   margin-bottom: 1.5rem;
 }
 
@@ -39,6 +39,7 @@
 .pointer-animation {
   width: 160px;
 }
+
 
 /* Contact Form Section */
 
