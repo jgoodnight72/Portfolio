@@ -10,6 +10,8 @@ function Home() {
       { icon: <img className="skill-icon" src="/skills/react.svg" alt="React" />, label: 'React' },
       { icon: <img className="skill-icon" src="/skills/html.svg" alt="CSS/HTML" />, label: 'HTML/CSS' },
       { icon: <img className="skill-icon" src="/skills/javascript.svg" alt="JavaScript" />, label: 'JavaScript' },
+      { icon: <img className="skill-icon" src="/skills/blazor.svg" alt="Blazor" />, label: 'Blazor' },
+      { icon: <img className="skill-icon" src="/skills/bootstrap.svg" alt="Bootstrap" />, label: 'Bootstrap' },
     ],
     Backend: [
       { icon: <img className="skill-icon" src="/skills/dotnet.svg" alt=".NET" />, label: 'C#/VB.NET' },
