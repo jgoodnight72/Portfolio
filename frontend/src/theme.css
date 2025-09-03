@@ -1,0 +1,9 @@
+:root {
+  --theme-white: #fff9f3;
+  --theme-black: #292929;
+  --primary-dark: #6c8238;
+  --primary-light: #b2c781;
+  --secondary-light: #eb833b;
+  --secondary-dark: #d4671a;
+  --theme-shadow: rgba(0,0,0,0.40);
+}
