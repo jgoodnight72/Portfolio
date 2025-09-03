@@ -48,7 +48,7 @@ function Home() {
           <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
           <li>
-            <a href="/Resume.pdf" download className="resume-link">
+            <a href="/Jennifer-Traeger-Resume.pdf" download className="resume-link">
               <img className="download-logo" src="/download_logo.png" alt="Download"/>
               Resume
             </a>
@@ -72,8 +72,39 @@ function Home() {
           </p>
         </div>
       </div>
+      <div className="history">
+        <h2>Work History</h2>
+        <div className="accordion">
+          {[{
+            company: 'Opus Inspections',
+            role: 'Full-Stack Software Developer',
+            years: '2020 - Present',
+            details: 'Public Websites team. Built and maintained web applications, integrated third-party services, and led sprint-driven development.'
+          }, {
+            company: 'Tech Solutions Inc.',
+            role: 'Software Engineer',
+            years: '2018 - 2020',
+            details: 'Worked on enterprise backend systems, database design, and API development.'
+          }].map((job, idx) => (
+            <AccordionItem key={idx} job={job} />
+          ))}
+        </div>
+      </div>
+      <div className="history">
+        <h2>Education</h2>
+        <div className="accordion">
+          {[{
+            company: 'Eastern Washington University',
+            role: 'BS in Computer Science',
+            years: '2015 - 2019',
+            details: 'Public Websites team. Built and maintained web applications, integrated third-party services, and led sprint-driven development.'
+          }].map((job, idx) => (
+            <AccordionItem key={idx} job={job} />
+          ))}
+        </div>
+      </div>
       <div className="skills">
-        <h2>My Skills</h2>
+        <h3>My Skills</h3>
         <div>
           {Object.keys(skillIcons).map(skill => (
             <button
@@ -98,6 +129,22 @@ function Home() {
           ))}
         </div>
       </div>
+  </div>
+);
+}
+
+function AccordionItem({ job }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={`accordion-item${open ? ' open' : ''}`}>
+      <button className="accordion-title" onClick={() => setOpen(!open)}>
+        <span>{job.company}</span> — <span>{job.role}</span> <span style={{float: 'right'}}>{job.years}</span>
+      </button>
+      {open && (
+        <div className="accordion-content">
+          {job.details}
+        </div>
+      )}
     </div>
   );
 }
