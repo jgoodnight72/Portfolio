@@ -3,7 +3,6 @@
 .not-found-container {
   background: var(--theme-white);
   min-height: 100vh;
-  padding-bottom: 10rem;
   padding-left: 10rem;
   padding-right: 10rem;
   padding-top: 3rem;
@@ -22,6 +21,7 @@
   color: var(--theme-grey);
   margin-bottom: 1.5rem;
   align-self: center;
+  text-align: center;
 }
 
 .not-found-header {
