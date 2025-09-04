@@ -6,6 +6,7 @@ import Projects from './Projects';
 import Blog from './Blog';
 import Contact from './Contact';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NotFound from './NotFound';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         {/*<Route path="/projects" element={<Projects />} />
         <Route path="/blog" element={<Blog />} />*/}
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

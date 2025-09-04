@@ -77,8 +77,9 @@
 }
 
 .fox-animation {
-  width: 100px;
-  height: 100px;
+  padding-left: 0.5rem;
+  width: 110px;
+  height: 110px;
 }
 
 
