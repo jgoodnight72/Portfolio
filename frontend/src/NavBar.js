@@ -7,8 +7,8 @@ function NavBar() {
     <nav className="navbar">
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/blog">Blog</a></li>
+        {/* <li><a href="/projects">Projects</a></li> 
+        <li><a href="/blog">Blog</a></li>*/}
         <li><Link to="/contact">Contact</Link></li>
         <li>
           <a href="/Jennifer-Traeger-Resume.pdf" download className="resume-link">
