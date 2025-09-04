@@ -6,6 +6,7 @@ import './Home.css';
 import './NavBar.css';
 
 function Home() {
+  const yearsExperience = new Date().getFullYear() - 2021;
   const skillIcons = {
     Frontend: [
       { icon: <img className="skill-icon" src="/skills/react.svg" alt="React" />, label: 'React' },
@@ -64,14 +65,14 @@ function Home() {
     <div className="home-container">
       <div className="profile">
         <div className="profile-content-float">
-          <img src="/profile.jpeg" alt="Jennifer Traeger" className="profile-photo-float" />
+          <img src="/global/profile.jpeg" alt="Jennifer Traeger" className="profile-photo-float" />
           <div className="profile-header">
             <h1>Hello, I'm Jenni</h1>
             <Lottie className="fox-animation" animationData={foxHello} />
           </div>
           <p className="profile-description-float">
             I am a <strong>Full-Stack Software Developer</strong> on the Public Websites team at Opus Inspections with 
-            <strong> 5 years of experience</strong>. I thrive in fast-paced, sprint-driven environments where 
+            <strong> {yearsExperience} years of experience</strong>. I thrive in fast-paced, sprint-driven environments where 
             meeting deadlines is essential, and I bring strong organizational skills that result in highly reusable, 
             maintainable solutions. Multifaceted across databases, user interfaces, and third-party integrations, I take 
             pride in building software that balances technical precision with real-world impact. I hold a <strong>Bachelor’s 
@@ -82,22 +83,29 @@ function Home() {
       <div className="history">
         <h2>Work History</h2>
         <div className="accordion">
-          {[{
-            company: 'Opus Inspections',
-            role: 'Software Developer',
-            years: '2023 - Present',
-            details: opusWorkHistory
-          }, {
-            company: 'Capital Insurance Group',
-            role: 'Software Developer II',
-            years: '2021 - 2023',
-            details: cigWorkHistory
-          }, {
-            company: 'Capital Insurance Group',
-            role: 'Technology Associate',
-            years: '2020 - 2021',
-            details: cigInternshipHistory
-          }].map((job, idx) => (
+          {[
+            {
+              company: 'Opus Inspections',
+              role: 'Software Developer',
+              years: '2023 - Present',
+              details: opusWorkHistory,
+              icon: <img src="/history/opus-logo.png" alt="Opus Icon" className="history-icons" />
+            },
+            {
+              company: 'Capital Insurance Group',
+              role: 'Software Developer II',
+              years: '2021 - 2023',
+              details: cigWorkHistory,
+              icon: <img src="/history/cig-logo.jpeg" alt="CIG Icon" className="history-icons" />
+            },
+            {
+              company: 'Capital Insurance Group',
+              role: 'Technology Associate',
+              years: '2020 - 2021',
+              details: cigInternshipHistory,
+              icon: <img src="/history/cig-logo.jpeg" alt="CIG Intern Icon" className="history-icons" />
+            }
+          ].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
           ))}
         </div>
@@ -105,12 +113,15 @@ function Home() {
       <div className="history">
         <h2>Education</h2>
         <div className="accordion">
-          {[{
-            company: 'Eastern Washington University',
-            role: 'BS in Computer Science',
-            years: '2017 - 2021',
-            details: educationHistory
-          }].map((job, idx) => (
+          {[
+            {
+              company: 'Eastern Washington University',
+              role: 'BS Computer Science',
+              years: '2017 - 2021',
+              details: educationHistory,
+              icon: <img src="/history/ewu-logo.svg" alt="EWU Icon" className="history-icons" />
+            }
+          ].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
           ))}
         </div>
@@ -150,6 +161,7 @@ function AccordionItem({ job }) {
   return (
     <div className={`accordion-item${open ? ' open' : ''}`}>
       <button className="accordion-title" onClick={() => setOpen(!open)}>
+        {job.icon && job.icon}
         <span>{job.company}</span> — <span>{job.role}</span> <span style={{float: 'right'}}>{job.years}</span>
       </button>
       <AnimatePresence initial={false}>

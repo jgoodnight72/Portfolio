@@ -26,13 +26,13 @@ function Contact() {
             </form>
             <div className="logos">
                 <a href="mailto:jgoodnight7272@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <img src="/email-logo.png" alt="Email Logo"/>
+                    <img src="/socials/email-logo.png" alt="Email Logo"/>
                 </a>
                 <a href="https://www.linkedin.com/in/jtraeger/" target="_blank" rel="noopener noreferrer">
-                    <img src="/linkedin-logo.png" alt="LinkedIn Logo" />
+                    <img src="/socials/linkedin-logo.png" alt="LinkedIn Logo" />
                 </a>
                 <a href="https://github.com/jgoodnight72" target="_blank" rel="noopener noreferrer">
-                    <img src="/git-logo.png" alt="GitHub Logo" />
+                    <img src="/socials/git-logo.png" alt="GitHub Logo" />
                 </a>
             </div>
         </div>

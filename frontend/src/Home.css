@@ -31,8 +31,9 @@
 
 .home-container p {
   font-size: 1.25rem;
-  color: var(--theme-black);
+  color: var(--theme-grey);
   margin-bottom: 1.5rem;
+  width: 710px;
 }
 
 
@@ -73,7 +74,6 @@
   font-size: 1.2rem;
   color: var(--theme-black);
   text-align: left;
-  width: 44rem;
 }
 
 .fox-animation {
@@ -119,6 +119,14 @@
   border-radius: 4px;
 }
 
+.history-icons {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
 .accordion-content {
   padding: 0.75rem 0.5rem 1.5rem 0;
   color: var(--theme-black);
@@ -151,7 +159,7 @@
 
 .skills {
   margin-top: 3rem;
-  background-color: var(--secondary-light);
+  background-color: var(--primary-light);
   width: 704px;
   margin-left: auto;
   margin-right: auto;
@@ -167,7 +175,8 @@
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
-  background: var(--secondary-dark);
+  background: var(--primary-light);
+  outline: 2px solid var(--primary-dark);
   color: var(--theme-white);
   cursor: pointer;
   transition: background 0.3s;
@@ -176,15 +185,12 @@
 }
 
 .btn-skills:hover {
-  background: var(--secondary-light);
-  outline: 3px solid var(--secondary-dark);
-  outline-offset: -3px;
+  background: var(--primary-dark);
+  outline: 3px solid var(--primary-dark);
 }
 
 .btn-skills.active {
-  background: var(--secondary-light);
-  outline: 3px solid var(--secondary-dark);
-  outline-offset: -3px;
+  background: var(--primary-dark);
 }
 
 .icons-grid {
@@ -227,5 +233,5 @@
 
 .label {
   font-size: 1rem;
-  color: var(--theme-black);
+  color: var(--theme-grey);
 }
