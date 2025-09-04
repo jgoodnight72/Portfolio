@@ -49,3 +49,25 @@
   vertical-align: middle;
   margin-right: 8px;
 }
+
+
+/* Mobile View */
+
+@media (max-width: 800px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    margin: 0.5rem 0;
+  }
+
+  .resume-link {
+    text-align: center;
+  }
+
+  .download-logo {
+    display: none;
+  }
+}

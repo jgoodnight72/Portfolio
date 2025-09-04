@@ -130,3 +130,40 @@
   max-width: 100%;
   max-height: 100%;
 }
+
+
+/* Mobile View */
+
+@media (max-width: 800px) {
+  .contact-container {
+    padding: 2rem;
+  }
+
+  .contact-form {
+    max-width: 800px;
+  }
+
+  .contact-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-header-text {
+    width: 100%;
+    margin: 0;
+  }
+
+  .pointer-animation {
+    width: 120px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 95%;
+  }
+
+  .logos a:hover {
+    transform: scale(1);
+  }
+
+}
