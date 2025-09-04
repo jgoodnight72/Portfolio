@@ -86,6 +86,7 @@
   border: none;
   border-radius: 4px;
   padding: 0.75rem;
+  margin-top: 0.75rem;
   font-size: 1.25rem;
   font-weight: bold;
   cursor: pointer;
@@ -97,6 +98,12 @@
   background: var(--secondary-light);
 }
 
+.char-count {
+  font-size: 0.9em;
+  color: var(--theme-grey);
+  text-align: right;
+  margin-bottom: 0.5em;
+}
 
 /* Logos Section */
 
@@ -107,8 +114,8 @@
 }
 
 .logos a {
-  max-width: 75px;
-  max-height: 75px;
+  max-width: 60px;
+  max-height: 60px;
   margin: 0 1rem;
   background-color: transparent;
   border: none;
