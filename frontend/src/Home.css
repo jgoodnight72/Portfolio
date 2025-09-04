@@ -71,7 +71,6 @@
 }
 
 .profile-description-float {
-  font-size: 1.2rem;
   color: var(--theme-black);
   text-align: left;
 }
@@ -135,12 +134,15 @@
   opacity: 1;
   transition: opacity 0.8s, transform 0.8s;
 }
+
 .accordion-content.fade-in {
   animation: fadeInAccordion 0.8s;
 }
+
 .accordion-content.fade-out {
   animation: fadeOutAccordion 0.8s;
 }
+
 @keyframes fadeOutAccordion {
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(-10px); }
@@ -235,4 +237,83 @@
 .label {
   font-size: 1rem;
   color: var(--theme-grey);
+}
+
+
+/* Mobile View */
+
+@media (max-width: 800px) {
+
+  /* Profile Section */
+
+  .home-container h1 {
+    font-size: 2rem;
+    margin-bottom: 0rem;
+    padding-right: 1rem;
+  }
+
+  .home-container p {
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+    width: 92%;
+  }
+
+  .profile-photo-float {
+    width: 150px;
+    height: 150px;
+  }
+
+  .fox-animation {
+    display: none;
+  }
+
+  /* Work History and Education Section */
+
+  .history {
+    padding: 1rem;
+  }
+
+  .accordion {
+    width: 100%;
+  }
+
+  .accordion-item {
+    width: 100%;
+  }
+
+  .accordion-title {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  
+  .history-icons {
+    padding-bottom: 0.3rem;
+  }
+
+  /* Skills Section */
+  .skills {
+    width: 90%;
+  }
+
+ @media (max-width: 770px) {
+    .btn-skills {
+      width: 300px;
+      margin: 0.5em;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+ }
+  .icons-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+    max-width: 90%;
+    margin-top: 2rem;
+  }
+
+  .icon-card {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
 }
