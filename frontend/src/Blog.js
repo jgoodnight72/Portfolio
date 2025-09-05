@@ -37,7 +37,8 @@ function Blog() {
           posts.map((post) => (
             <div key={post.id} className="blog-post">
               <h3>{post.title}</h3>
-              <p><strong>Date:</strong> {post.date}</p>
+              <h4><strong>Date:</strong> {post.date}</h4>
+              <hr />
               <p>{post.message}</p>
             </div>
           ))
