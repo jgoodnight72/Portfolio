@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./Blog.css";
 
 function Blog() {
@@ -35,12 +36,14 @@ function Blog() {
           <div>No posts found.</div>
         ) : (
           posts.map((post) => (
-            <div key={post.id} className="blog-post">
-              <h3>{post.title}</h3>
-              <h4><strong>Date:</strong> {post.date}</h4>
-              <hr />
-              <p>{post.message}</p>
-            </div>
+            <Link to={`/blog/${post.id}`} className="blog-link" key={post.id} style={{ textDecoration: 'none' }}>
+              <div className="blog-post">
+                <h3>{post.title}</h3>
+                <h4><strong>Date:</strong> {post.date}</h4>
+                <hr />
+                <p>{post.message.length > 160 ? post.message.slice(0, 160) + '...' : post.message}</p>
+              </div>
+            </Link>
           ))
         )}
       </div>
