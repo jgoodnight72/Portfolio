@@ -44,24 +44,29 @@ function Home() {
   const skillCategories = Object.keys(skillIcons);
   const [selectedSkill, setSelectedSkill] = useState(skillCategories[0]);
   const opusWorkHistory = [
-    "Concurrent, full-stack development and maintenance of four public facing websites such as wisconsinvip2.org and ctemissions.com, on a small team of four developers",
-    "Collaborate closely with Project Managers, QA, Technical Leads, and Business Stakeholders to design and implement features that support balance between code reusability and specific customer requirements",
-    "Displayed ownership of my software quality by writing comprehensive automated tests to ensure consistent, reliable performance",
-    "Independently streamlined and documented deployment processes, later adopted by other teams, improving cross-team efficiency and consistency"
+    "Concurrent full-stack development and maintenance for four public-facing websites, delivering essential online services for multiple state programs.",
+    "Provided leadership support as Technical Advocate and interim Scrum Master.",
+    "Mentored new team members on full deployment cycles, accelerating onboarding and ensuring smooth release processes.",
+    "Collaborated closely with cross-functional teams to build features that balance code reusability with unique customer requirements.",
+    "Practiced test driven development through comprehensive automated tests to ensure consistent and reliable performance.",
+    "Led the effort to set up the team wiki and document deployment workflows, helping onboard new members and creating repeatable processes adopted across teams.",
+    "Led initiative to reduce legacy CSS by 95% while preserving user-facing design, improving maintainability and accelerating future design changes."
   ]
   const cigWorkHistory = [
-    "Collaborate with an agile team of twelve to design, develop, maintain and test two full-stack web/desktop applications",
-    "Established and documented a standardized training program for three junior developers to assist with onboarding and mentorship"
+    "Designed, developed, maintained, and tested two full-stack web and desktop applications, delivering consistent and dependable functionality for underwriters.",
+    "Worked on an Agile team of 12, delivering high quality software in a fast-paced, sprint-driven environment while consistently meeting deadlines.",
+    "Developed and documented a standardized training program to support onboarding.",
+    "Mentored three junior developers through onboarding and early projects."
   ]
   const cigInternshipHistory = [
-    "Wrote an automated test suite that reduced bugs and manual testing time",
-    "Write SQL scripts and update SQL packages to resolve bugs",
-    "Featured as Intern of the Month on company newsletter and website"
+    "Wrote an automated test suite that reduced bugs and manual testing time.",
+    "Developed SQL scripts and updated packages to identify and resolve bugs.",
+    "Featured as Intern of the Month on company newsletter and website."
   ]
   const educationHistory = [
-    "Graduated 2021 Cum Laude and BSCS Outstanding Student Award Recipient",
-    "Placed 2nd in EWU Programming Competition",
-    "BA in Music with Emphasis in Piano"
+    "Completed degree Cum Laude and awarded 2021 BSCS Outstanding Student.",
+    "Placed 2nd in EWU Programming Competition.",
+    "Earned a BA in Music with emphasis in piano."
   ]
 
 
