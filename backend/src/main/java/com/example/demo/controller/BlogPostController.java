@@ -28,4 +28,16 @@ public class BlogPostController {
     public BlogPost getBlogPostById(@PathVariable Long id) {
         return blogPostRepository.findById(id).orElse(null);
     }
+
+    @PutMapping("/{id}")
+    public BlogPost updateBlogPost(@PathVariable Long id, @RequestBody BlogPost updatedPost) {
+        return blogPostRepository.findById(id)
+            .map(post -> {
+                post.setTitle(updatedPost.getTitle());
+                post.setDate(updatedPost.getDate());
+                post.setMessage(updatedPost.getMessage());
+                return blogPostRepository.save(post);
+            })
+            .orElse(null);
+    }
 }
