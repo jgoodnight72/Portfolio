@@ -34,7 +34,11 @@ function BlogDetail() {
         <h2>{post.title}</h2>
         <h3><strong>Date:</strong> {post.date}</h3>
         <hr />
-        <p>{post.message}</p>
+        {post.message.split('\n\n').map((para, idx) => (
+          <p key={idx}>{para}</p>
+        ))}
+        <br />
+        <br />
         <Link className="return-to-blog" to="/blog">&larr; Back to Blog</Link>
       </div>
     </div>
