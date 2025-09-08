@@ -14,7 +14,9 @@ function Blog() {
         return res.json();
       })
       .then((data) => {
-        setPosts(data);
+        // Sort posts by date descending
+        const sorted = [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
+        setPosts(sorted);
         setLoading(false);
       })
       .catch((err) => {
