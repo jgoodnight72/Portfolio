@@ -24,6 +24,13 @@ function BlogDetail() {
       });
   }, [id]);
 
+  function Linkify(text) {
+    return text.replace(
+      /(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
+  }
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!post) return <div>Blog post not found.</div>;
@@ -35,7 +42,7 @@ function BlogDetail() {
         <h3><strong>Date:</strong> {post.date}</h3>
         <hr />
         {post.message.split('\n\n').map((para, idx) => (
-          <p key={idx}>{para}</p>
+          <p key={idx} dangerouslySetInnerHTML={{ __html: Linkify(para) }} />
         ))}
         <br />
         <br />
