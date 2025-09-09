@@ -8,7 +8,7 @@ function Blog() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/api/blogposts')
+    fetch('http://138.197.194.128:8080/api/blogposts')
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
