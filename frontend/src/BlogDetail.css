@@ -1,0 +1,57 @@
+@import './theme.css';
+
+/* Blog Page Basics */
+
+.blog-detail-container {
+  background: var(--theme-white);
+  min-height: 100vh;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-detail-container h2 {
+  font-size: 2rem;
+  align-self: flex-start;
+  color: var(--theme-black);
+}
+
+/* Blog Detail Post Section */
+
+.blog-detail-post {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.blog-detail-container h3 {
+  font-size: 1.5rem;
+  align-self: flex-start;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  color: var(--theme-black);
+}
+
+.blog-detail-post p {
+  font-size: 1.25rem;
+  color: var(--theme-grey);
+  padding-left: 2rem;
+  line-height: 1.6;
+}
+
+
+/* Return to Blog Link */
+
+.return-to-blog {
+  align-self: flex-start;
+  font-size: 1rem;
+  background-color: var(--secondary-light);
+  padding: 10px 14px;
+  border-radius: 4px;
+  color: var(--theme-white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
