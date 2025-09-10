@@ -2,8 +2,8 @@
   width: 100%;
   text-align: center;
   padding: 1rem 0;
-  background: var(--theme-white);
-  color: var(--theme-grey);
+  background: var(--theme-black);
+  color: var(--theme-white);
   font-size: 1rem;
   position: static;
   margin-top: auto;
