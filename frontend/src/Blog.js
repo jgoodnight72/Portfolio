@@ -43,37 +43,37 @@ function Blog() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-  <div className="blog-container">
-    <div className="blog-header">
-      <h2>My Blog</h2>
-    </div>
-    <div className="blog-posts">
-      {currentPosts.length === 0 ? (
-        <div>No posts found.</div>
-      ) : (
-        currentPosts.map((post) => (
-          <Link to={`/blog/${post.id}`} className="blog-link" key={post.id} style={{ textDecoration: 'none' }}>
-            <div className="blog-post">
-              <h3>{post.title}</h3>
-              <h4><strong>Date:</strong> {post.date}</h4>
-              <hr />
-              <p>{post.message.length > previewLength ? post.message.slice(0, previewLength) + '...' : post.message}</p>
-            </div>
-          </Link>
-        ))
-      )}
-    </div>
-        {posts.length > postsPerPage && (
-          <div className="pagination">
-            {pageNumbers.map((pageNum) => (
-              <button key={pageNum} onClick={() => handlePageChange(pageNum)} className={pageNum === currentPage ? 'active' : ''}>
-                {pageNum}
-              </button>
-            ))}
-          </div>
+    <div className="blog-container">
+      <div className="blog-header">
+        <h2>My Blog</h2>
+      </div>
+      <div className="blog-posts">
+        {currentPosts.length === 0 ? (
+          <div>No posts found.</div>
+        ) : (
+          currentPosts.map((post) => (
+            <Link to={`/blog/${post.id}`} className="blog-link" key={post.id} style={{ textDecoration: 'none' }}>
+              <div className="blog-post">
+                <h3>{post.title}</h3>
+                <h4><strong>Date:</strong> {post.date}</h4>
+                <hr />
+                <p>{post.message.length > previewLength ? post.message.slice(0, previewLength) + '...' : post.message}</p>
+              </div>
+            </Link>
+          ))
         )}
-  </div>
-);
+      </div>
+          {posts.length > postsPerPage && (
+            <div className="pagination">
+              {pageNumbers.map((pageNum) => (
+                <button key={pageNum} onClick={() => handlePageChange(pageNum)} className={pageNum === currentPage ? 'active' : ''}>
+                  {pageNum}
+                </button>
+              ))}
+            </div>
+          )}
+    </div>
+  );
 }
 
 export default Blog;
