@@ -79,3 +79,45 @@
   margin-left: 3rem;
   margin-right: 2rem;
 }
+
+/* Pagination styles */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.pagination button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--theme-white);
+  border: 2px solid var(--secondary-light);
+  color: var(--theme-black);
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.pagination button.active {
+  background: var(--secondary-light);
+  color: var(--theme-white);
+  font-weight: bold;
+}
+
+
+/* Mobile View */
+
+@media (max-width: 800px) {
+  .blog-container {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+
+  .blog-container h2 {
+    align-self: center;
+  }
+
+  .blog-post {
+    width: 100%;
+    max-width: 300px;
+  }
+}
