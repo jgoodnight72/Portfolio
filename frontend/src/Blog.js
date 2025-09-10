@@ -63,15 +63,15 @@ function Blog() {
           ))
         )}
       </div>
-          {posts.length > postsPerPage && (
-            <div className="pagination">
-              {pageNumbers.map((pageNum) => (
-                <button key={pageNum} onClick={() => handlePageChange(pageNum)} className={pageNum === currentPage ? 'active' : ''}>
-                  {pageNum}
-                </button>
-              ))}
-            </div>
-          )}
+      {posts.length > postsPerPage && (
+        <div className="pagination">
+          {pageNumbers.map((pageNum) => (
+            <button key={pageNum} onClick={() => handlePageChange(pageNum)} className={pageNum === currentPage ? 'active' : ''}>
+              {pageNum}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
