@@ -5,8 +5,9 @@ import Home from './Home';
 import Projects from './Projects';
 import Blog from './Blog';
 import Contact from './Contact';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFound from './NotFound';
+import Footer from './Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BlogDetail from './BlogDetail';
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

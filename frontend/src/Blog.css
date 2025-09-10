@@ -5,7 +5,7 @@
 .blog-container {
   background: var(--theme-white);
   min-height: 100vh;
-  padding-bottom: 10rem;
+  padding-bottom: 5rem;
   padding-left: 10rem;
   padding-right: 10rem;
   padding-top: 3rem;
@@ -92,7 +92,7 @@
   padding: 0.5rem 1rem;
   background: var(--theme-white);
   border: 2px solid var(--secondary-light);
-  color: var(--theme-black);
+  color: var(--theme-grey);
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
