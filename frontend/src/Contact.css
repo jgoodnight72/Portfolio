@@ -3,7 +3,6 @@
 .contact-container {
   background: var(--theme-white);
   min-height: 100vh;
-  padding-bottom: 10rem;
   padding-left: 10rem;
   padding-right: 10rem;
   padding-top: 3rem;
@@ -110,7 +109,6 @@
 .logos {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
 }
 
 .logos a {
