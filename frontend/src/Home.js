@@ -64,7 +64,8 @@ function Home() {
     "Featured as Intern of the Month on company newsletter and website."
   ]
   const educationHistory = [
-    "Completed degree Cum Laude and awarded 2021 BSCS Outstanding Student.",
+    "Completed degree Cum Laude.",
+    "Awarded 2021 BSCS Outstanding Student.",
     "Placed 2nd in EWU Programming Competition.",
     "Earned a BA in Music with emphasis in piano."
   ]
