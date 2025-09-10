@@ -92,7 +92,7 @@
   padding: 0.5rem 1rem;
   background: var(--theme-white);
   border: 2px solid var(--secondary-light);
-  color: var(--theme-black);
+  color: var(--theme-grey);
   font-weight: bold;
   border-radius: 4px;
   cursor: pointer;

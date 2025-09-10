@@ -61,22 +61,28 @@
   width: 600px;
   padding: 0.5rem;
   border-radius: 4px;
-  border: 3px solid var(--primary-light);
-  background-color: var(--primary-light);
+  border: 3px solid var(--primary-lightest);
+  background-color: var(--primary-lightest);
   margin-bottom: 1rem;
   font-size: 1rem;
   color: var(--theme-black);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s;
   font-family: monospace;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-light);
+  outline: none;
 }
 
 .contact-form input:-webkit-autofill,
 .contact-form textarea:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px var(--primary-light) inset !important;
-  box-shadow: 0 0 0 1000px var(--primary-light) inset !important;
+  -webkit-box-shadow: 0 0 0 1000px var(--primary-lightest) inset !important;
+  box-shadow: 0 0 0 1000px var(--primary-lightest) inset !important;
   -webkit-text-fill-color: var(--theme-black) !important;
   color: var(--theme-black) !important;
-  border: 3px solid var(--primary-light);
+  border: 3px solid var(--primary-lightest);
 }
 
 .contact-form button {
@@ -103,6 +109,7 @@
   text-align: right;
   margin-bottom: 0.5em;
 }
+
 
 /* Logos Section */
 
