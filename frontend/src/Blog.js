@@ -43,7 +43,7 @@ function Blog() {
                 <h3>{post.title}</h3>
                 <h4><strong>Date:</strong> {post.date}</h4>
                 <hr />
-                <p>{post.message.length > 160 ? post.message.slice(0, 160) + '...' : post.message}</p>
+                <p>{post.message.length > 110 ? post.message.slice(0, 110) + '...' : post.message}</p>
               </div>
             </Link>
           ))

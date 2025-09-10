@@ -79,3 +79,21 @@
   margin-left: 3rem;
   margin-right: 2rem;
 }
+
+/* Mobile View */
+
+@media (max-width: 800px) {
+  .blog-container {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+
+  .blog-container h2 {
+    align-self: center;
+  }
+
+  .blog-post {
+    width: 100%;
+    max-width: 300px;
+  }
+}
