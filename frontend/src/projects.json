@@ -1,0 +1,16 @@
+[
+  {
+    "id": "Portfolio",
+    "title": "Portfolio Website",
+    "tags": ["Javascript", "CSS", "Java", "Docker"],
+    "photo": "/projects/portfolio.png",
+    "description": "A personal portfolio with a mini CMS blog, showcasing my projects, work history, and design style."
+  },
+  {
+    "id": "WidgetBoard",
+    "title": "Widget Board",
+    "tags": ["Javascript", "CSS", "HTML", "Java"],
+    "photo": "/projects/comingsoon.jpeg",
+    "description": "A webpage for using all my favorite widgets."
+  }
+]
