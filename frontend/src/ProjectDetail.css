@@ -1,0 +1,118 @@
+
+/* Project Detail Page Basics */
+
+.project-detail-container {
+  background: var(--theme-white);
+  min-height: 100vh;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+.project-detail-left {
+  flex: 1 1 0;
+  min-width: 650px;
+}
+
+.project-detail-right {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+/* Project Detail Header Section */
+
+.project-detail-header {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin-bottom: 1.5rem;
+}
+
+.project-detail-container h2 {
+  font-size: 2rem;
+  align-self: flex-start;
+  color: var(--theme-black);
+}
+
+.project-detail-container p {
+  font-size: 1.25rem;
+  color: var(--theme-grey);
+  margin: 0;
+}
+
+
+/* Project Detail Content Section */
+
+.project-detail-image {
+  width: 650px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--theme-shadow);
+}
+
+.project-detail-container h3 {
+  font-size: 1.5rem;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  color: var(--theme-black);
+}
+
+.project-detail-link  {
+  background: var(--secondary-light);
+  width: 122px;
+  padding: 10px 14px;
+  border-radius: 4px;
+  color: var(--theme-white);
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.project-detail-link:hover {
+  background: var(--secondary-dark);
+}
+
+.project-detail-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.project-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-detail-tag {
+  background: var(--primary-lightest);
+  color: var(--primary-dark);
+  border-radius: 8px;
+  padding: 0.3em 0.8em;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.project-detail-description {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--theme-grey);
+}

@@ -13,7 +13,7 @@ function Projects() {
         {projects.map((project) => (
           <Link to={`/projects/${project.id}`} className="project-link" key={project.id} style={{ textDecoration: 'none' }}>
             <div className="project-card">
-              <img className="project-photo" src={project.photo} alt={`${project.title} screenshot`} />
+              <img className="project-photo" src={project.image} alt={`${project.title} screenshot`} />
               <div className="project-description">
                 <h3>{project.title}</h3>
                 {project.tags.map((tag, index) => (
