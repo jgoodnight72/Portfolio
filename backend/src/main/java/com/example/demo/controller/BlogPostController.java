@@ -40,4 +40,9 @@ public class BlogPostController {
             })
             .orElse(null);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteBlogPost(@PathVariable Long id) {
+        blogPostRepository.deleteById(id);
+    }
 }

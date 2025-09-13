@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import "./Blog.css";
 
 function Blog() {
@@ -13,7 +15,7 @@ function Blog() {
   const [passPhrase, setPassPhrase] = useState('');
   const [passphraseError, setPassphraseError] = useState('');
   const [showPostModal, setShowPostModal] = useState(false);
-  const [postForm, setPostForm] = useState({ title: '', content: '' });
+  const [postForm, setPostForm] = useState({ title: '', date: new Date(), message: '' });
   const [activeTab, setActiveTab] = useState('post');
 
   // Pagination logic
@@ -45,6 +47,24 @@ function Blog() {
       });
   }, []);
 
+    // Helper to refresh posts after post/delete
+    const refreshPosts = () => {
+      setLoading(true);
+      fetch('/api/blogposts')
+        .then((res) => {
+          if (!res.ok) throw new Error('Network response was not ok');
+          return res.json();
+        })
+        .then((data) => {
+          const sorted = [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
+          setPosts(sorted);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading(false);
+        });
+    };
   const handlePostClick = () => {
     setShowPassphraseModal(true);
     setPassPhrase('');
@@ -63,21 +83,25 @@ function Blog() {
   };
 
   const handlePostFormChange = (e) => {
-    setPostForm({ ...postForm, [e.target.name]: e.target.value });
+  setPostForm({ ...postForm, [e.target.name]: e.target.value });
   };
 
   const handlePostFormSubmit = async (e) => {
     e.preventDefault();
-    // Replace with your backend API endpoint
-    const response = await fetch('/api/blog', {
+    // Format date as yyyy-MM-dd for backend
+    const postData = {
+      ...postForm,
+      date: postForm.date ? postForm.date.toISOString().split('T')[0] : ''
+    };
+    const response = await fetch('/api/blogposts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(postForm)
+      body: JSON.stringify(postData)
     });
     if (response.ok) {
-      setShowPostModal(false);
-      setPostForm({ title: '', content: '' });
-      // Optionally refresh blog list here
+  setShowPostModal(false);
+  setPostForm({ title: '', date: null, message: '' });
+  refreshPosts();
     } else {
       setError('Failed to post blog.');
     }
@@ -85,11 +109,11 @@ function Blog() {
 
   const handleDeletePost = async (postId) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
-      const response = await fetch(`/api/blog/${postId}`, {
+      const response = await fetch(`/api/blogposts/${postId}`, {
         method: 'DELETE'
       });
       if (response.ok) {
-        setPosts(posts.filter(post => post.id !== postId));
+        refreshPosts();
       } else {
         setError('Failed to delete post.');
       }
@@ -151,13 +175,12 @@ function Blog() {
                   placeholder="Title"
                   required
                 />
-                <input
-                  id="blog-year"
-                  name="year"
-                  value={postForm.year}
-                  onChange={handlePostFormChange}
+                <DatePicker
+                  selected={postForm.date}
+                  onChange={date => setPostForm({ ...postForm, date })}
                   className="post-blog-input"
-                  placeholder="Year"
+                  placeholderText="Select date"
+                  dateFormat="yyyy-MM-dd"
                   required
                 />
                 <textarea
@@ -181,7 +204,7 @@ function Blog() {
                 <table>
                   <thead>
                     <tr>
-                      <th>Year</th>
+                      <th>Date</th>
                       <th>Title</th>
                       <th></th>
                     </tr>
@@ -189,7 +212,7 @@ function Blog() {
                   <tbody>
                     {posts.map(post => (
                       <tr key={post.id}>
-                        <td>{post.year || post.date?.slice(0,4)}</td>
+                        <td>{post.date}</td>
                         <td>{post.title}</td>
                         <td>
                           <button className="delete-blog-btn" onClick={() => handleDeletePost(post.id)}>
