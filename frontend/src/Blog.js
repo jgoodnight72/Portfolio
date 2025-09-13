@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import "./Blog.css";
 
 function Blog() {
@@ -15,7 +13,7 @@ function Blog() {
   const [passPhrase, setPassPhrase] = useState('');
   const [passphraseError, setPassphraseError] = useState('');
   const [showPostModal, setShowPostModal] = useState(false);
-  const [postForm, setPostForm] = useState({ title: '', date: new Date(), message: '' });
+  const [postForm, setPostForm] = useState({ title: '', date: '', message: '' });
   const [activeTab, setActiveTab] = useState('post');
 
   // Pagination logic
@@ -83,25 +81,20 @@ function Blog() {
   };
 
   const handlePostFormChange = (e) => {
-  setPostForm({ ...postForm, [e.target.name]: e.target.value });
+    setPostForm({ ...postForm, [e.target.name]: e.target.value });
   };
 
   const handlePostFormSubmit = async (e) => {
     e.preventDefault();
-    // Format date as yyyy-MM-dd for backend
-    const postData = {
-      ...postForm,
-      date: postForm.date ? postForm.date.toISOString().split('T')[0] : ''
-    };
     const response = await fetch('/api/blogposts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(postData)
+      body: JSON.stringify(postForm)
     });
     if (response.ok) {
-  setShowPostModal(false);
-  setPostForm({ title: '', date: null, message: '' });
-  refreshPosts();
+      setShowPostModal(false);
+      setPostForm({ title: '', date: '', message: '' });
+      refreshPosts();
     } else {
       setError('Failed to post blog.');
     }
@@ -175,12 +168,14 @@ function Blog() {
                   placeholder="Title"
                   required
                 />
-                <DatePicker
-                  selected={postForm.date}
-                  onChange={date => setPostForm({ ...postForm, date })}
+                <input
+                  id="blog-date"
+                  name="date"
+                  type="date"
+                  value={postForm.date}
+                  onChange={handlePostFormChange}
                   className="post-blog-input"
-                  placeholderText="Select date"
-                  dateFormat="yyyy-MM-dd"
+                  placeholder="Date"
                   required
                 />
                 <textarea
