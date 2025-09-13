@@ -3,7 +3,7 @@
 /* Blog Detail Page Basics */
 
 .blog-detail-container {
-  background: var(--theme-white);
+  background: var(--theme-cream);
   min-height: 100vh;
   padding-left: 10rem;
   padding-right: 10rem;
@@ -51,7 +51,7 @@
   padding: 0.7rem 1.5rem;
   border: none;
   background: var(--secondary-light);
-  color: var(--theme-white);
+  color: var(--theme-cream);
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
@@ -62,8 +62,8 @@
 
 .return-to-blog:hover {
   background: var(--secondary-dark);
-  color: var(--theme-white);
-  box-shadow: var(--theme-white);
+  color: var(--theme-cream);
+  box-shadow: var(--theme-cream);
 }
 
 

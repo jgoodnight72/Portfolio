@@ -21,7 +21,7 @@
 }
 
 .navbar a {
-  color: var(--theme-white);
+  color: var(--theme-cream);
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
@@ -44,7 +44,7 @@
 
 .resume-link:hover {
   background: var(--secondary-dark);
-  color: var(--theme-white) !important;
+  color: var(--theme-cream) !important;
 }
 
 .download-logo {
@@ -88,7 +88,7 @@
 
   .nav-dropdown-toggle {
     background: var(--theme-black);
-    color: var(--theme-white);
+    color: var(--theme-cream);
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
@@ -99,7 +99,7 @@
     top: 55px;
     left: 50%;
     transform: translateX(-50%) translateY(-10px);
-    background: var(--theme-white);
+    background: var(--theme-cream);
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     min-width: 220px;

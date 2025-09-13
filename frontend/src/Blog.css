@@ -3,7 +3,7 @@
 /* Blog Page Basics */
 
 .blog-container {
-  background: var(--theme-white);
+  background: var(--theme-cream);
   min-height: 100vh;
   padding-bottom: 5rem;
   padding-left: 10rem;
@@ -57,7 +57,7 @@
 
 .blog-post:hover {
   background: var(--primary-light);
-  box-shadow: var(--theme-white);
+  box-shadow: var(--theme-cream);
 }
 
 .blog-container h4 {
@@ -96,7 +96,7 @@
 .pagination button {
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
-  background: var(--theme-white);
+  background: var(--theme-cream);
   border: 2px solid var(--secondary-light);
   color: var(--theme-grey);
   font-weight: bold;
@@ -105,7 +105,7 @@
 }
 .pagination button.active {
   background: var(--secondary-light);
-  color: var(--theme-white);
+  color: var(--theme-cream);
   font-weight: bold;
 }
 
@@ -117,7 +117,7 @@
   align-items: center;
   gap: 0.5rem;
   background: var(--secondary-light);
-  color: var(--theme-white);
+  color: var(--theme-cream);
   border: none;
   border-radius: 8px;
   padding: 0.7rem 1.5rem;
@@ -130,8 +130,8 @@
 
 .post-blog-btn:hover {
   background: var(--secondary-dark);
-  color: var(--theme-white);
-  box-shadow: var(--theme-white);
+  color: var(--theme-cream);
+  box-shadow: var(--theme-cream);
 }
 
 .blog-icon {
@@ -154,7 +154,7 @@
 }
 
 .blog-modal {
-  background: var(--theme-white);
+  background: var(--theme-cream);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
   padding: 2rem 2.5rem;
@@ -189,7 +189,7 @@
 
 .blog-modal-tab {
   flex: 1 1 0;
-  background: var(--theme-white);
+  background: var(--theme-cream);
   color: var(--theme-black);
   border: none;
   border-bottom: 2px solid transparent;
@@ -233,19 +233,21 @@
   width: 580px;
   padding: 0.5rem;
   border-radius: 4px;
-  border: 3px solid var(--primary-lightest);
-  background-color: var(--primary-lightest);
+  border: 3px solid var(--primary-light);
+  background-color: var(--theme-white);
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 1rem;
   color: var(--theme-grey);
   transition: background-color 0.3s, border-color 0.3s;
   font-family: monospace;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .post-blog-input:focus {
-  outline: none !important;
-  border: 3px solid var(--primary-light) !important;
+  border-color: var(--primary-light);
+  outline: none;
 }
 
 .post-blog-input:-webkit-autofill,
@@ -263,7 +265,7 @@
   border-radius: 8px;
   border: none;
   background: var(--secondary-light);
-  color: var(--theme-white);
+  color: var(--theme-cream);
   font-weight: 600;
   cursor: pointer;
   font-size: 1rem;
@@ -272,7 +274,7 @@
 
 .post-blog-form-btn:hover {
   background: var(--secondary-dark);
-  color: var(--theme-white);
+  color: var(--theme-cream);
 }
 
 .blog-error {
@@ -286,7 +288,7 @@
 .delete-blog-table {
   width: 100%;
   margin-top: 2rem;
-  background: var(--theme-white);
+  background: var(--theme-cream);
   border-radius: 12px;
   overflow-x: auto;
   padding-top: 1.5rem;
@@ -305,7 +307,7 @@
 }
 
 .delete-blog-table th {
-  background: var(--theme-white);
+  background: var(--theme-cream);
   color: var(--theme-black);
   font-weight: 700;
   border-bottom: 2px solid var(--theme-grey);
@@ -322,7 +324,7 @@
 
 .delete-blog-btn {
   background: var(--secondary-light);
-  color: var(--theme-white);
+  color: var(--theme-cream);
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1.2rem;
