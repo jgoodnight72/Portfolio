@@ -69,14 +69,23 @@ function Blog() {
     setPassphraseError('');
   };
 
-  const handlePassPhraseSubmit = (e) => {
+  const handlePassPhraseSubmit = async (e) => {
     e.preventDefault();
-    if (passPhrase === 'isitfridayyet') {
+    const payload = {
+      passphrase: passPhrase,
+      blogPost: { title: '', date: '', message: '' }
+    };
+    const response = await fetch('/api/blogposts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (response.status === 403) {
+      setPassphraseError('Incorrect pass phrase.');
+    } else {
       setShowPassphraseModal(false);
       setShowPostModal(true);
       setPassphraseError('');
-    } else {
-      setPassphraseError('Incorrect pass phrase.');
     }
   };
 
@@ -86,10 +95,14 @@ function Blog() {
 
   const handlePostFormSubmit = async (e) => {
     e.preventDefault();
+    const payload = {
+      passphrase: passPhrase,
+      blogPost: postForm
+    };
     const response = await fetch('/api/blogposts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(postForm)
+      body: JSON.stringify(payload)
     });
     if (response.ok) {
       setShowPostModal(false);
