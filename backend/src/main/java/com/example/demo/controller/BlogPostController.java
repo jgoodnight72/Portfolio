@@ -25,6 +25,18 @@ public class BlogPostController {
         public BlogPost blogPost;
     }
 
+    public static class PassphraseRequest {
+        public String passphrase;
+    }
+
+    @PostMapping("/verify")
+    public ResponseEntity<?> verifyPassphrase(@RequestBody PassphraseRequest request) {
+        if (!blogPassphrase.equals(request.passphrase)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid passphrase");
+        }
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping
     public List<BlogPost> getAllBlogPosts() {
         return blogPostRepository.findAll();

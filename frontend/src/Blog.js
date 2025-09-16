@@ -71,22 +71,24 @@ function Blog() {
 
   const handlePassPhraseSubmit = async (e) => {
     e.preventDefault();
-    const payload = {
-      passphrase: passPhrase,
-      blogPost: { title: '', date: '', message: '' }
-    };
-    const response = await fetch('/api/blogposts', {
+    if (!passPhrase) {
+      setPassphraseError('Passphrase required.');
+      return;
+    }
+    // Verify passphrase using dedicated endpoint
+    const payload = { passphrase: passPhrase };
+    const response = await fetch('/api/blogposts/verify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
     if (response.status === 403) {
       setPassphraseError('Incorrect pass phrase.');
-    } else {
-      setShowPassphraseModal(false);
-      setShowPostModal(true);
-      setPassphraseError('');
+      return;
     }
+    setShowPassphraseModal(false);
+    setShowPostModal(true);
+    setPassphraseError('');
   };
 
   const handlePostFormChange = (e) => {
@@ -95,6 +97,11 @@ function Blog() {
 
   const handlePostFormSubmit = async (e) => {
     e.preventDefault();
+    // Validate form fields
+    if (!postForm.title || !postForm.date || !postForm.message) {
+      setError('All fields are required.');
+      return;
+    }
     const payload = {
       passphrase: passPhrase,
       blogPost: postForm
