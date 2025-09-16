@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import projects from "../data/projects.json";
 import "./Projects.css";
-import portfolioImg from '../assets/projects/portfolio.png';
-import comingSoonImg from '../assets/projects/comingsoon.jpeg';
+import { portfolioImg, comingSoonImg } from '../assets/projects';
 
 function Projects() {
   // Map project IDs to imported images

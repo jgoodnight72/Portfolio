@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
-import foxHello from '../assets/animations/fox_hello.json';
+import { foxHello } from '../assets/animations';
 import './Home.css';
 import '../components/NavBar.css';
-import reactIcon from '../assets/skills/react.svg';
-import htmlIcon from '../assets/skills/html.svg';
-import javascriptIcon from '../assets/skills/javascript.svg';
-import blazorIcon from '../assets/skills/blazor.svg';
-import bootstrapIcon from '../assets/skills/bootstrap.svg';
-import dotnetIcon from '../assets/skills/dotnet.svg';
-import databaseIcon from '../assets/skills/database.svg';
-import springbootIcon from '../assets/skills/springboot.svg';
-import awsIcon from '../assets/skills/aws.svg';
-import dockerIcon from '../assets/skills/docker.svg';
-import jenkinsIcon from '../assets/skills/jenkins.svg';
-import agileIcon from '../assets/skills/agile.svg';
-import oopIcon from '../assets/skills/OOP.svg';
-import tddIcon from '../assets/skills/TDD.svg';
-import vsIcon from '../assets/skills/VS.svg';
-import intellijIcon from '../assets/skills/intellijidea.svg';
-import githubIcon from '../assets/skills/github.svg';
-import atlassianIcon from '../assets/skills/atlassian.svg';
-import profilePhoto from '../assets/global/profile.jpeg';
-import opusLogo from '../assets/history/opus-logo.png';
-import cigLogo from '../assets/history/cig-logo.jpeg';
-import ewuLogo from '../assets/history/ewu-logo.svg';
+import {
+  reactIcon,
+  htmlIcon,
+  javascriptIcon,
+  blazorIcon,
+  bootstrapIcon,
+  dotnetIcon,
+  databaseIcon,
+  springbootIcon,
+  awsIcon,
+  dockerIcon,
+  jenkinsIcon,
+  agileIcon,
+  oopIcon,
+  tddIcon,
+  vsIcon,
+  intellijIcon,
+  githubIcon,
+  atlassianIcon
+} from '../assets/skills';
+import { profilePhoto } from '../assets/global';
+import { opusLogo, cigLogo, ewuLogo } from '../assets/history';
+import { workHistory } from '../data/workHistory';
+import { educationHistory } from '../data/educationHistory';
 
 function Home() {
 
@@ -65,32 +67,7 @@ function Home() {
   };
   const skillCategories = Object.keys(skillIcons);
   const [selectedSkill, setSelectedSkill] = useState(skillCategories[0]);
-  const opusWorkHistory = [
-    "Concurrent full-stack development and maintenance for four public-facing websites, delivering essential online services for multiple state programs.",
-    "Provided leadership support as Technical Advocate and interim Scrum Master.",
-    "Mentored new team members on full deployment cycles, accelerating onboarding and ensuring smooth release processes.",
-    "Collaborated closely with cross-functional teams to build features that balance code reusability with unique customer requirements.",
-    "Practiced test driven development through comprehensive automated tests to ensure consistent and reliable performance.",
-    "Led the effort to set up the team wiki and document deployment workflows, helping onboard new members and creating repeatable processes adopted across teams.",
-    "Led initiative to reduce legacy CSS by 95% while preserving user-facing design, improving maintainability and accelerating future design changes."
-  ]
-  const cigWorkHistory = [
-    "Designed, developed, maintained, and tested two full-stack web and desktop applications, delivering consistent and dependable functionality for underwriters.",
-    "Worked on an Agile team of 12, delivering high quality software in a fast-paced, sprint-driven environment while consistently meeting deadlines.",
-    "Developed and documented a standardized training program to support onboarding.",
-    "Mentored three junior developers through onboarding and early projects."
-  ]
-  const cigInternshipHistory = [
-    "Wrote an automated test suite that reduced bugs and manual testing time.",
-    "Developed SQL scripts and updated packages to identify and resolve bugs.",
-    "Featured as Intern of the Month on company newsletter and website."
-  ]
-  const educationHistory = [
-    "Completed degree Cum Laude.",
-    "Awarded 2021 BSCS Outstanding Student.",
-    "Placed 2nd in EWU Programming Competition.",
-    "Earned a BA in Music with emphasis in piano."
-  ]
+  // ...existing code...
 
 
   /* Helper Functions */
@@ -123,7 +100,6 @@ function Home() {
   );
 }
 
-
 /* Render */
 
   return (
@@ -153,21 +129,21 @@ function Home() {
               company: 'Opus Inspections',
               role: 'Software Developer',
               years: '2023 - Present',
-              details: opusWorkHistory,
+              details: workHistory.opus,
               icon: <img src={opusLogo} alt="Opus Icon" className="history-icons" />
             },
             {
               company: 'Capital Insurance Group',
               role: 'Software Developer II',
               years: '2021 - 2023',
-              details: cigWorkHistory,
+              details: workHistory.cig,
               icon: <img src={cigLogo} alt="CIG Icon" className="history-icons" />
             },
             {
               company: 'Capital Insurance Group',
               role: 'Technology Associate',
               years: '2020 - 2021',
-              details: cigInternshipHistory,
+              details: workHistory.cigInternship,
               icon: <img src={cigLogo} alt="CIG Intern Icon" className="history-icons" />
             }
           ].map((job, idx) => (

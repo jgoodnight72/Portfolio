@@ -1,16 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { usePagination } from '../features/blog/usePagination';
 import { Link } from 'react-router-dom';
+import { useBlog } from '../features/blog/useBlog';
 import "./Blog.css";
-import lockIcon from '../assets/blog/lock-icon.png';
-import trashIcon from '../assets/blog/trash-icon.png';
+import { lockIcon, trashIcon } from '../assets/blog';
 
 function Blog() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const {
+    posts,
+    loading,
+    error,
+    refreshPosts,
+    postBlog,
+    deleteBlogPost,
+    verifyPassphrase,
+    setError,
+  } = useBlog();
   const postsPerPage = 3;
   const previewLength = 110;
+  const {
+    currentPage,
+    pageNumbers,
+    getCurrentItems,
+    handlePageChange
+  } = usePagination({ totalItems: posts.length, itemsPerPage: postsPerPage });
   const [showPassphraseModal, setShowPassphraseModal] = useState(false);
   const [passPhrase, setPassPhrase] = useState('');
   const [passphraseError, setPassphraseError] = useState('');
@@ -18,53 +31,10 @@ function Blog() {
   const [postForm, setPostForm] = useState({ title: '', date: '', message: '' });
   const [activeTab, setActiveTab] = useState('post');
 
-  // Pagination logic
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(posts.length / postsPerPage);
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-  const handlePageChange = (pageNum) => {
-    setCurrentPage(pageNum);
-    window.scrollTo(0, 0);
-  };
+  // ...existing code...
+  const currentPosts = getCurrentItems(posts);
 
-  useEffect(() => {
-    fetch('/api/blogposts')
-      .then((res) => {
-        if (!res.ok) throw new Error('Network response was not ok');
-        return res.json();
-      })
-      .then((data) => {
-        // Sort posts by date descending
-        const sorted = [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
-        setPosts(sorted);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-
-    // Helper to refresh posts after post/delete
-    const refreshPosts = () => {
-      setLoading(true);
-      fetch('/api/blogposts')
-        .then((res) => {
-          if (!res.ok) throw new Error('Network response was not ok');
-          return res.json();
-        })
-        .then((data) => {
-          const sorted = [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
-          setPosts(sorted);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err.message);
-          setLoading(false);
-        });
-    };
+  // Data fetching and refresh logic now handled by useBlog
   const handlePostClick = () => {
     setShowPassphraseModal(true);
     setPassPhrase('');
@@ -77,13 +47,8 @@ function Blog() {
       setPassphraseError('Passphrase required.');
       return;
     }
-    // Verify passphrase using dedicated endpoint
-    const payload = { passphrase: passPhrase };
-    const response = await fetch('/api/blogposts/verify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
+    // Verify passphrase using service
+    const response = await verifyPassphrase(passPhrase);
     if (response.status === 403) {
       setPassphraseError('Incorrect pass phrase.');
       return;
@@ -104,15 +69,7 @@ function Blog() {
       setError('All fields are required.');
       return;
     }
-    const payload = {
-      passphrase: passPhrase,
-      blogPost: postForm
-    };
-    const response = await fetch('/api/blogposts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
+    const response = await postBlog(passPhrase, postForm);
     if (response.ok) {
       setShowPostModal(false);
       setPostForm({ title: '', date: '', message: '' });
@@ -124,9 +81,7 @@ function Blog() {
 
   const handleDeletePost = async (postId) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
-      const response = await fetch(`/api/blogposts/${postId}`, {
-        method: 'DELETE'
-      });
+      const response = await deleteBlogPost(postId);
       if (response.ok) {
         refreshPosts();
       } else {

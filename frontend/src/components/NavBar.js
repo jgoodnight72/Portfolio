@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
-import downloadLogo from '../assets/global/download_logo.png';
+import { downloadLogo } from '../assets/global';
 
 function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
