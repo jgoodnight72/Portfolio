@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import projects from "./projects.json";
+import projects from "./data/projects.json";
 import portfolioImg from './assets/projects/portfolio.png';
 import comingSoonImg from './assets/projects/comingsoon.jpeg';
 import "./ProjectDetail.css";

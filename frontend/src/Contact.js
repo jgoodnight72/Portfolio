@@ -5,7 +5,7 @@ import linkedinLogo from './assets/socials/linkedin-logo.png';
 import gitLogo from './assets/socials/git-logo.png';
 import './Contact.css';
 import Lottie from 'lottie-react';
-import mapPointer from './map_pointer.json';
+import mapPointer from './assets/animations/map_pointer.json';
 
 function Contact() {
     const [message, setMessage] = useState("");
