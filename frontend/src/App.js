@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
-import NavBar from './NavBar';
-import Home from './Home';
-import Projects from './Projects';
-import Blog from './Blog';
-import Contact from './Contact';
-import NotFound from './NotFound';
-import Footer from './Footer';
+import NavBar from './components/NavBar';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BlogDetail from './BlogDetail';
-import ProjectDetail from './ProjectDetail';
+import BlogDetail from './pages/BlogDetail';
+import ProjectDetail from './pages/ProjectDetail';
 
 
 function App() {

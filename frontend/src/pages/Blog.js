@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Blog.css";
-import lockIcon from './assets/blog/lock-icon.png';
-import trashIcon from './assets/blog/trash-icon.png';
+import lockIcon from '../assets/blog/lock-icon.png';
+import trashIcon from '../assets/blog/trash-icon.png';
 
 function Blog() {
   const [posts, setPosts] = useState([]);
