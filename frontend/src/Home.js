@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
-import foxHello from './fox_hello.json';
+import foxHello from './assets/animations/fox_hello.json';
 import './Home.css';
 import './NavBar.css';
 import reactIcon from './assets/skills/react.svg';

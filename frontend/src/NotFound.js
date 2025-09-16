@@ -1,7 +1,7 @@
 import React from 'react';
 import './NotFound.css';
 import Lottie from 'lottie-react';
-import foxAnimation from './fox_programmer.json';
+import foxAnimation from './assets/animations/fox_programmer.json';
 
 function NotFound() {
   return (
