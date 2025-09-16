@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Blog.css";
+import lockIcon from './assets/blog/lock-icon.png';
+import trashIcon from './assets/blog/trash-icon.png';
 
 function Blog() {
   const [posts, setPosts] = useState([]);
@@ -141,7 +143,7 @@ function Blog() {
       <div className="blog-header-container">
         <h2>My Blog</h2>
         <button onClick={handlePostClick} className="post-blog-btn">
-          <img src="/blog/lock-icon.png" alt="Lock Icon" className="blog-icon" />
+          <img src={lockIcon} alt="Lock Icon" className="blog-icon" />
           Post
         </button>
       </div>
@@ -231,7 +233,7 @@ function Blog() {
                         <td>{post.title}</td>
                         <td>
                           <button className="delete-blog-btn" onClick={() => handleDeletePost(post.id)}>
-                            <img src="/blog/trash-icon.png" alt="Trash Icon" className="blog-icon" />
+                            <img src={trashIcon} alt="Trash Icon" className="blog-icon" />
                           </button>
                         </td>
                       </tr>

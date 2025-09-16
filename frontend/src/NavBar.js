@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
+import downloadLogo from './assets/global/download_logo.png';
 
 function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -27,7 +28,7 @@ function NavBar() {
           <li><Link to="/contact">Contact</Link></li>
           <li>
             <a href="/Jennifer-Traeger-Resume.pdf" download className="resume-link" onClick={() => setDropdownOpen(false)}>
-              <img className="download-logo" src="/global/download_logo.png" alt="Download"/>
+              <img className="download-logo" src={downloadLogo} alt="Download"/>
               Resume
             </a>
           </li>
@@ -44,7 +45,7 @@ function NavBar() {
           <li><Link to="/contact" onClick={() => setDropdownOpen(false)}>Contact</Link></li>
           <li>
             <a href="/Jennifer-Traeger-Resume.pdf" download className="resume-link" onClick={() => setDropdownOpen(false)} >
-              <img className="download-logo" src="/global/download_logo.png" alt="Download"/>
+              <img className="download-logo" src={downloadLogo} alt="Download"/>
               Resume
             </a>
           </li>

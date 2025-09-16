@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
+import emailLogo from './assets/socials/email-logo.png';
+import linkedinLogo from './assets/socials/linkedin-logo.png';
+import gitLogo from './assets/socials/git-logo.png';
 import './Contact.css';
 import Lottie from 'lottie-react';
 import mapPointer from './map_pointer.json';
@@ -39,13 +42,13 @@ function Contact() {
                 </form>
                 <div className="logos">
                     <a href="mailto:jgoodnight7272@gmail.com" target="_blank" rel="noopener noreferrer">
-                        <img src="/socials/email-logo.png" alt="Email Logo"/>
+                        <img src={emailLogo} alt="Email Logo"/>
                     </a>
                     <a href="https://www.linkedin.com/in/jtraeger/" target="_blank" rel="noopener noreferrer">
-                        <img src="/socials/linkedin-logo.png" alt="LinkedIn Logo" />
+                        <img src={linkedinLogo} alt="LinkedIn Logo" />
                     </a>
                     <a href="https://github.com/jgoodnight72" target="_blank" rel="noopener noreferrer">
-                        <img src="/socials/git-logo.png" alt="GitHub Logo" />
+                        <img src={gitLogo} alt="GitHub Logo" />
                     </a>
                 </div>
             </div>

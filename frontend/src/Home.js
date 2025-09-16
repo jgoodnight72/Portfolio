@@ -4,6 +4,28 @@ import Lottie from 'lottie-react';
 import foxHello from './fox_hello.json';
 import './Home.css';
 import './NavBar.css';
+import reactIcon from './assets/skills/react.svg';
+import htmlIcon from './assets/skills/html.svg';
+import javascriptIcon from './assets/skills/javascript.svg';
+import blazorIcon from './assets/skills/blazor.svg';
+import bootstrapIcon from './assets/skills/bootstrap.svg';
+import dotnetIcon from './assets/skills/dotnet.svg';
+import databaseIcon from './assets/skills/database.svg';
+import springbootIcon from './assets/skills/springboot.svg';
+import awsIcon from './assets/skills/aws.svg';
+import dockerIcon from './assets/skills/docker.svg';
+import jenkinsIcon from './assets/skills/jenkins.svg';
+import agileIcon from './assets/skills/agile.svg';
+import oopIcon from './assets/skills/OOP.svg';
+import tddIcon from './assets/skills/TDD.svg';
+import vsIcon from './assets/skills/VS.svg';
+import intellijIcon from './assets/skills/intellijidea.svg';
+import githubIcon from './assets/skills/github.svg';
+import atlassianIcon from './assets/skills/atlassian.svg';
+import profilePhoto from './assets/global/profile.jpeg';
+import opusLogo from './assets/history/opus-logo.png';
+import cigLogo from './assets/history/cig-logo.jpeg';
+import ewuLogo from './assets/history/ewu-logo.svg';
 
 function Home() {
 
@@ -12,33 +34,33 @@ function Home() {
   const yearsExperience = new Date().getFullYear() - 2021;
   const skillIcons = {
     Frontend: [
-      { icon: <img className="skill-icon" src="/skills/react.svg" alt="React" />, label: 'React' },
-      { icon: <img className="skill-icon" src="/skills/html.svg" alt="CSS/HTML" />, label: 'HTML/CSS' },
-      { icon: <img className="skill-icon" src="/skills/javascript.svg" alt="JavaScript" />, label: 'JavaScript' },
-      { icon: <img className="skill-icon" src="/skills/blazor.svg" alt="Blazor" />, label: 'Blazor' },
-      { icon: <img className="skill-icon" src="/skills/bootstrap.svg" alt="Bootstrap" />, label: 'Bootstrap' },
+      { icon: <img className="skill-icon" src={reactIcon} alt="React" />, label: 'React' },
+      { icon: <img className="skill-icon" src={htmlIcon} alt="CSS/HTML" />, label: 'HTML/CSS' },
+      { icon: <img className="skill-icon" src={javascriptIcon} alt="JavaScript" />, label: 'JavaScript' },
+      { icon: <img className="skill-icon" src={blazorIcon} alt="Blazor" />, label: 'Blazor' },
+      { icon: <img className="skill-icon" src={bootstrapIcon} alt="Bootstrap" />, label: 'Bootstrap' },
     ],
     Backend: [
-      { icon: <img className="skill-icon" src="/skills/dotnet.svg" alt=".NET" />, label: 'C#/VB.NET' },
-      { icon: <img className="skill-icon" src="/skills/database.svg" alt="Microsoft SQL Server" />, label: 'SQL' },
-      { icon: <img className="skill-icon" src="/skills/javascript.svg" alt="Java" />, label: 'Java' },
-      { icon: <img className="skill-icon" src="/skills/springboot.svg" alt="Spring Boot" />, label: 'Spring Boot' },
+      { icon: <img className="skill-icon" src={dotnetIcon} alt=".NET" />, label: 'C#/VB.NET' },
+      { icon: <img className="skill-icon" src={databaseIcon} alt="Microsoft SQL Server" />, label: 'SQL' },
+      { icon: <img className="skill-icon" src={javascriptIcon} alt="Java" />, label: 'Java' },
+      { icon: <img className="skill-icon" src={springbootIcon} alt="Spring Boot" />, label: 'Spring Boot' },
     ],
     DevOps: [
-      { icon: <img className="skill-icon" src="/skills/aws.svg" alt="AWS" />, label: 'AWS' },
-      { icon: <img className="skill-icon" src="/skills/docker.svg" alt="Docker" />, label: 'Docker' },
-      { icon: <img className="skill-icon" src="/skills/jenkins.svg" alt="Jenkins" />, label: 'Jenkins' },
+      { icon: <img className="skill-icon" src={awsIcon} alt="AWS" />, label: 'AWS' },
+      { icon: <img className="skill-icon" src={dockerIcon} alt="Docker" />, label: 'Docker' },
+      { icon: <img className="skill-icon" src={jenkinsIcon} alt="Jenkins" />, label: 'Jenkins' },
     ],
     Practices: [
-      { icon: <img className="skill-icon" src="/skills/agile.svg" alt="Agile" />, label: 'Agile/Scrum' },
-      { icon: <img className="skill-icon" src="/skills/OOP.svg" alt="OOP" />, label: 'OOP' },
-      { icon: <img className="skill-icon" src="/skills/TDD.svg" alt="TDD" />, label: 'TDD' },
+      { icon: <img className="skill-icon" src={agileIcon} alt="Agile" />, label: 'Agile/Scrum' },
+      { icon: <img className="skill-icon" src={oopIcon} alt="OOP" />, label: 'OOP' },
+      { icon: <img className="skill-icon" src={tddIcon} alt="TDD" />, label: 'TDD' },
     ],
     Tools: [
-      { icon: <img className="skill-icon" src="/skills/VS.svg" alt="Visual Studio" />, label: 'Visual Studio' },
-      { icon: <img className="skill-icon" src="/skills/intellijidea.svg" alt="IntelliJ IDEA" />, label: 'IntelliJ IDEA' },
-      { icon: <img className="skill-icon" src="/skills/github.svg" alt="GitHub" />, label: 'GitHub' },
-      { icon: <img className="skill-icon" src="/skills/atlassian.svg" alt="Atlassian" />, label: 'Atlassian' },
+      { icon: <img className="skill-icon" src={vsIcon} alt="Visual Studio" />, label: 'Visual Studio' },
+      { icon: <img className="skill-icon" src={intellijIcon} alt="IntelliJ IDEA" />, label: 'IntelliJ IDEA' },
+      { icon: <img className="skill-icon" src={githubIcon} alt="GitHub" />, label: 'GitHub' },
+      { icon: <img className="skill-icon" src={atlassianIcon} alt="Atlassian" />, label: 'Atlassian' },
     ]
   };
   const skillCategories = Object.keys(skillIcons);
@@ -108,7 +130,7 @@ function Home() {
     <div className="home-container">
       <div className="profile">
         <div className="profile-content-float">
-          <img src="/global/profile.jpeg" alt="Jennifer Traeger" className="profile-photo-float" />
+          <img src={profilePhoto} alt="Jennifer Traeger" className="profile-photo-float" />
           <div className="profile-header">
             <h1>Hello, I'm Jenni</h1>
             <Lottie className="fox-animation" animationData={foxHello} />
@@ -132,21 +154,21 @@ function Home() {
               role: 'Software Developer',
               years: '2023 - Present',
               details: opusWorkHistory,
-              icon: <img src="/history/opus-logo.png" alt="Opus Icon" className="history-icons" />
+              icon: <img src={opusLogo} alt="Opus Icon" className="history-icons" />
             },
             {
               company: 'Capital Insurance Group',
               role: 'Software Developer II',
               years: '2021 - 2023',
               details: cigWorkHistory,
-              icon: <img src="/history/cig-logo.jpeg" alt="CIG Icon" className="history-icons" />
+              icon: <img src={cigLogo} alt="CIG Icon" className="history-icons" />
             },
             {
               company: 'Capital Insurance Group',
               role: 'Technology Associate',
               years: '2020 - 2021',
               details: cigInternshipHistory,
-              icon: <img src="/history/cig-logo.jpeg" alt="CIG Intern Icon" className="history-icons" />
+              icon: <img src={cigLogo} alt="CIG Intern Icon" className="history-icons" />
             }
           ].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
@@ -162,7 +184,7 @@ function Home() {
               role: 'BS Computer Science',
               years: '2017 - 2021',
               details: educationHistory,
-              icon: <img src="/history/ewu-logo.svg" alt="EWU Icon" className="history-icons" />
+              icon: <img src={ewuLogo} alt="EWU Icon" className="history-icons" />
             }
           ].map((job, idx) => (
             <AccordionItem key={idx} job={job} />
