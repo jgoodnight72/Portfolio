@@ -3,7 +3,7 @@
 /* Projects Page Basics */
 
 .projects-container {
-  background: var(--theme-white);
+  background: var(--theme-cream);
   min-height: 100vh;
   padding-bottom: 5rem;
   padding-left: 10rem;
@@ -56,7 +56,7 @@
 
 .project-card:hover {
   background: var(--primary-light);
-  box-shadow: var(--theme-white);
+  box-shadow: var(--theme-cream);
 }
 
 .project-photo {
@@ -90,7 +90,7 @@
 .project-tag {
   display: inline-block;
   background-color: var(--primary-dark);
-  color: var(--theme-white);
+  color: var(--theme-cream);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.875rem;

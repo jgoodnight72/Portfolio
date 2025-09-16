@@ -3,6 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.model.BlogPost;
 import com.example.demo.repository.BlogPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,14 +17,38 @@ public class BlogPostController {
     @Autowired
     private BlogPostRepository blogPostRepository;
 
+    @Value("${BLOG_PASSPHRASE}")
+    private String blogPassphrase;
+
+    public static class BlogPostRequest {
+        public String passphrase;
+        public BlogPost blogPost;
+    }
+
+    public static class PassphraseRequest {
+        public String passphrase;
+    }
+
+    @PostMapping("/verify")
+    public ResponseEntity<?> verifyPassphrase(@RequestBody PassphraseRequest request) {
+        if (!blogPassphrase.equals(request.passphrase)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid passphrase");
+        }
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping
     public List<BlogPost> getAllBlogPosts() {
         return blogPostRepository.findAll();
     }
 
     @PostMapping
-    public BlogPost createBlogPost(@RequestBody BlogPost blogPost) {
-        return blogPostRepository.save(blogPost);
+    public ResponseEntity<?> createBlogPost(@RequestBody BlogPostRequest request) {
+        if (!blogPassphrase.equals(request.passphrase)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid passphrase");
+        }
+        BlogPost saved = blogPostRepository.save(request.blogPost);
+        return ResponseEntity.ok(saved);
     }
 
     @GetMapping("/{id}")
@@ -39,5 +66,10 @@ public class BlogPostController {
                 return blogPostRepository.save(post);
             })
             .orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBlogPost(@PathVariable Long id) {
+        blogPostRepository.deleteById(id);
     }
 }

@@ -46,7 +46,7 @@ function BlogDetail() {
         ))}
         <br />
         <br />
-        <Link className="return-to-blog" to="/blog">&larr; Back to Blog</Link>
+        <Link className="return-to-blog" to="/blog">&larr; Back to Blogs</Link>
       </div>
     </div>
   );
