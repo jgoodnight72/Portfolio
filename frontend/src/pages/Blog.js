@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { usePagination } from '../features/blog/usePagination';
-import { Link } from 'react-router-dom';
 import { useBlog } from '../features/blog/useBlog';
 import "./Blog.css";
-import { lockIcon, trashIcon } from '../assets/blog';
+import { lockIcon } from '../assets/blog';
+import PassphraseModal from '../components/PassphraseModal';
+import BlogPostModal from '../components/BlogPostModal';
+import BlogPostCard from '../components/BlogPostCard';
 
 function Blog() {
   const {
@@ -13,8 +15,7 @@ function Blog() {
     refreshPosts,
     postBlog,
     deleteBlogPost,
-    verifyPassphrase,
-    setError,
+    verifyPassphrase
   } = useBlog();
   const postsPerPage = 3;
   const previewLength = 110;
@@ -30,6 +31,7 @@ function Blog() {
   const [showPostModal, setShowPostModal] = useState(false);
   const [postForm, setPostForm] = useState({ title: '', date: '', message: '' });
   const [activeTab, setActiveTab] = useState('post');
+  const [formError, setFormError] = useState('');
 
   // ...existing code...
   const currentPosts = getCurrentItems(posts);
@@ -66,16 +68,17 @@ function Blog() {
     e.preventDefault();
     // Validate form fields
     if (!postForm.title || !postForm.date || !postForm.message) {
-      setError('All fields are required.');
+      setFormError('All fields are required.');
       return;
     }
     const response = await postBlog(passPhrase, postForm);
     if (response.ok) {
       setShowPostModal(false);
       setPostForm({ title: '', date: '', message: '' });
+      setFormError('');
       refreshPosts();
     } else {
-      setError('Failed to post blog.');
+      setFormError('Failed to post blog.');
     }
   };
 
@@ -84,8 +87,9 @@ function Blog() {
       const response = await deleteBlogPost(postId);
       if (response.ok) {
         refreshPosts();
+        setFormError('');
       } else {
-        setError('Failed to delete post.');
+        setFormError('Failed to delete post.');
       }
     }
   };
@@ -103,117 +107,34 @@ function Blog() {
         </button>
       </div>
       {showPassphraseModal && (
-        <div className="blog-modal-overlay">
-          <div className="blog-modal">
-            <form onSubmit={handlePassPhraseSubmit}>
-              <label className="post-blog-label" htmlFor="passphrase">One does not simply... publish a blog.</label>
-              <input
-                id="passphrase"
-                type="password"
-                value={passPhrase}
-                onChange={e => setPassPhrase(e.target.value)}
-                className="post-blog-input"
-                autoFocus
-                placeholder="Enter passphrase..."
-              />
-              {passphraseError && <div className="blog-error">{passphraseError}</div>}
-              <button className="post-blog-form-btn" type="submit">Submit</button>
-              <button className="post-blog-form-btn" type="button" onClick={() => setShowPassphraseModal(false)}>Cancel</button>
-            </form>
-          </div>
-        </div>
+        <PassphraseModal
+          passPhrase={passPhrase}
+          setPassPhrase={setPassPhrase}
+          passphraseError={passphraseError}
+          onSubmit={handlePassPhraseSubmit}
+          onCancel={() => setShowPassphraseModal(false)}
+        />
       )}
       {showPostModal && (
-        <div className="blog-modal-overlay">
-          <div className="blog-modal">
-            <div className="blog-modal-tabs">
-              <button className={`blog-modal-tab blog-modal-tab-post${activeTab === 'post' ? ' active' : ''}`} onClick={() => setActiveTab('post')}>
-                Post
-              </button>
-              <button className={`blog-modal-tab blog-modal-tab-delete${activeTab === 'delete' ? ' active' : ''}`} onClick={() => setActiveTab('delete')}>
-                Delete
-              </button>
-            </div>
-            {activeTab === 'post' && (
-              <form className="post-blog-form" onSubmit={handlePostFormSubmit}>
-                <input
-                  id="blog-title"
-                  name="title"
-                  value={postForm.title}
-                  onChange={handlePostFormChange}
-                  className="post-blog-input"
-                  placeholder="Title"
-                  required
-                />
-                <input
-                  id="blog-date"
-                  name="date"
-                  type="date"
-                  value={postForm.date}
-                  onChange={handlePostFormChange}
-                  className="post-blog-input"
-                  placeholder="Date"
-                  required
-                />
-                <textarea
-                  id="blog-message"
-                  name="message"
-                  value={postForm.message}
-                  onChange={handlePostFormChange}
-                  className="post-blog-input"
-                  placeholder="Message"
-                  required
-                />
-                <div>
-                  <button className="post-blog-form-btn" type="submit">Post</button>
-                  <button className="post-blog-form-btn" type="button" onClick={() => setShowPostModal(false)}>Cancel</button>
-                </div>
-                {error && <div className="blog-error">{error}</div>}
-              </form>
-            )}
-            {activeTab === 'delete' && (
-              <div className="delete-blog-table">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Title</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {posts.map(post => (
-                      <tr key={post.id}>
-                        <td>{post.date}</td>
-                        <td>{post.title}</td>
-                        <td>
-                          <button className="delete-blog-btn" onClick={() => handleDeletePost(post.id)}>
-                            <img src={trashIcon} alt="Trash Icon" className="blog-icon" />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <button className="post-blog-form-btn" type="button" onClick={() => setShowPostModal(false)}>Cancel</button>
-              </div>
-            )}
-          </div>
-        </div>
+        <BlogPostModal
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          postForm={postForm}
+          setPostForm={setPostForm}
+          handlePostFormSubmit={handlePostFormSubmit}
+          handlePostFormChange={handlePostFormChange}
+          handleDeletePost={handleDeletePost}
+          posts={posts}
+          formError={formError}
+          setShowPostModal={setShowPostModal}
+        />
       )}
       <div className="blog-posts">
         {currentPosts.length === 0 ? (
           <div>No posts found.</div>
         ) : (
           currentPosts.map((post) => (
-            <Link to={`/blog/${post.id}`} className="blog-link" key={post.id} style={{ textDecoration: 'none' }}>
-              <div className="blog-post">
-                <h3>{post.title}</h3>
-                <h4><strong>Date:</strong> {post.date}</h4>
-                <hr />
-                <p>{post.message.length > previewLength ? post.message.slice(0, previewLength) + '...' : post.message}</p>
-              </div>
-            </Link>
+            <BlogPostCard key={post.id} post={post} previewLength={previewLength} />
           ))
         )}
       </div>

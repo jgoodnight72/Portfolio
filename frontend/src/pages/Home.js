@@ -1,106 +1,24 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
 import { foxHello } from '../assets/animations';
 import './Home.css';
-import '../components/NavBar.css';
-import {
-  reactIcon,
-  htmlIcon,
-  javascriptIcon,
-  blazorIcon,
-  bootstrapIcon,
-  dotnetIcon,
-  databaseIcon,
-  springbootIcon,
-  awsIcon,
-  dockerIcon,
-  jenkinsIcon,
-  agileIcon,
-  oopIcon,
-  tddIcon,
-  vsIcon,
-  intellijIcon,
-  githubIcon,
-  atlassianIcon
-} from '../assets/skills';
 import { profilePhoto } from '../assets/global';
 import { opusLogo, cigLogo, ewuLogo } from '../assets/history';
 import { workHistory } from '../data/workHistory';
 import { educationHistory } from '../data/educationHistory';
+import { skillIcons } from '../data/skillIcons';
+import AccordionItem from '../components/AccordionItem';
 
 function Home() {
 
   /* Constants */
 
   const yearsExperience = new Date().getFullYear() - 2021;
-  const skillIcons = {
-    Frontend: [
-      { icon: <img className="skill-icon" src={reactIcon} alt="React" />, label: 'React' },
-      { icon: <img className="skill-icon" src={htmlIcon} alt="CSS/HTML" />, label: 'HTML/CSS' },
-      { icon: <img className="skill-icon" src={javascriptIcon} alt="JavaScript" />, label: 'JavaScript' },
-      { icon: <img className="skill-icon" src={blazorIcon} alt="Blazor" />, label: 'Blazor' },
-      { icon: <img className="skill-icon" src={bootstrapIcon} alt="Bootstrap" />, label: 'Bootstrap' },
-    ],
-    Backend: [
-      { icon: <img className="skill-icon" src={dotnetIcon} alt=".NET" />, label: 'C#/VB.NET' },
-      { icon: <img className="skill-icon" src={databaseIcon} alt="Microsoft SQL Server" />, label: 'SQL' },
-      { icon: <img className="skill-icon" src={javascriptIcon} alt="Java" />, label: 'Java' },
-      { icon: <img className="skill-icon" src={springbootIcon} alt="Spring Boot" />, label: 'Spring Boot' },
-    ],
-    DevOps: [
-      { icon: <img className="skill-icon" src={awsIcon} alt="AWS" />, label: 'AWS' },
-      { icon: <img className="skill-icon" src={dockerIcon} alt="Docker" />, label: 'Docker' },
-      { icon: <img className="skill-icon" src={jenkinsIcon} alt="Jenkins" />, label: 'Jenkins' },
-    ],
-    Practices: [
-      { icon: <img className="skill-icon" src={agileIcon} alt="Agile" />, label: 'Agile/Scrum' },
-      { icon: <img className="skill-icon" src={oopIcon} alt="OOP" />, label: 'OOP' },
-      { icon: <img className="skill-icon" src={tddIcon} alt="TDD" />, label: 'TDD' },
-    ],
-    Tools: [
-      { icon: <img className="skill-icon" src={vsIcon} alt="Visual Studio" />, label: 'Visual Studio' },
-      { icon: <img className="skill-icon" src={intellijIcon} alt="IntelliJ IDEA" />, label: 'IntelliJ IDEA' },
-      { icon: <img className="skill-icon" src={githubIcon} alt="GitHub" />, label: 'GitHub' },
-      { icon: <img className="skill-icon" src={atlassianIcon} alt="Atlassian" />, label: 'Atlassian' },
-    ]
-  };
   const skillCategories = Object.keys(skillIcons);
   const [selectedSkill, setSelectedSkill] = useState(skillCategories[0]);
-  // ...existing code...
 
 
-  /* Helper Functions */
-
-  function AccordionItem({ job }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className={`accordion-item${open ? ' open' : ''}`}>
-      <button className="accordion-title" onClick={() => setOpen(!open)}>
-        {job.icon && job.icon}
-        <span>{job.company}</span> — <span>{job.role}</span> <span style={{float: 'right'}}>{job.years}</span>
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            className="accordion-content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.7, ease: [0.2, 0, 0.2, 0.8] }}
-            style={{ overflow: 'hidden' }}
-          >
-            {Array.isArray(job.details)
-              ? <ul>{job.details.map((item, i) => <li key={i}>{item}</li>)}</ul>
-              : job.details}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-/* Render */
+  /* Render */
 
   return (
     <div className="home-container">

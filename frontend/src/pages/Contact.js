@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../App.css';
 import { emailLogo, linkedinLogo, gitLogo } from '../assets/socials';
 import './Contact.css';
 import Lottie from 'lottie-react';
