@@ -2,7 +2,7 @@
   {
     "id": "Portfolio",
     "title": "Portfolio",
-    "link": "https://www.jennifertraeger.me/",
+    "link": "",
     "repo": "https://github.com/jgoodnight72/Portfolio",
     "tags": ["Javascript", "CSS", "Java", "Docker"],
     "image": "/projects/portfolio.png",
