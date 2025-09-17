@@ -6,6 +6,7 @@ services:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - BLOG_PASSPHRASE=${BLOG_PASSPHRASE}
   frontend:
     build: ./frontend
     ports:
