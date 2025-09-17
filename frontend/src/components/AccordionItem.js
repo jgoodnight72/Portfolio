@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import './AccordionItem.css';
 
 function AccordionItem({ job }) {
   const [open, setOpen] = useState(false);

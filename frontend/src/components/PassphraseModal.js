@@ -1,4 +1,5 @@
 import React from 'react';
+import './BlogPostModal.css';
 
 function PassphraseModal({ passPhrase, setPassPhrase, passphraseError, onSubmit, onCancel }) {
   return (

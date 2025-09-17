@@ -1,5 +1,6 @@
 import React from 'react';
 import { trashIcon } from '../assets/blog';
+import './BlogPostModal.css';
 
 function BlogPostModal({
   activeTab,

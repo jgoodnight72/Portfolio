@@ -32,11 +32,9 @@ function Blog() {
   const [postForm, setPostForm] = useState({ title: '', date: '', message: '' });
   const [activeTab, setActiveTab] = useState('post');
   const [formError, setFormError] = useState('');
-
-  // ...existing code...
   const currentPosts = getCurrentItems(posts);
 
-  // Data fetching and refresh logic now handled by useBlog
+  // Data fetching and refresh logic handled by useBlog
   const handlePostClick = () => {
     setShowPassphraseModal(true);
     setPassPhrase('');

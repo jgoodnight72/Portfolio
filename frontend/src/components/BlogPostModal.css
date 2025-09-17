@@ -1,0 +1,223 @@
+/* Blog Post Modal Basics */
+
+.blog-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-modal {
+  background: var(--theme-cream);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 2rem 2.5rem;
+  width: 700px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.blog-modal-tabs {
+  display: flex;
+  justify-content: stretch;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  gap: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.blog-modal-tab {
+  flex: 1 1 0;
+  background: var(--theme-cream);
+  color: var(--theme-black);
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1.2rem 0;
+  border-radius: 16px 16px 0 0;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
+}
+
+.blog-modal-tab-post {
+  border-radius: 16px 0 0 0;
+}
+
+.blog-modal-tab-delete {
+  border-radius: 0 16px 0 0;
+}
+
+.blog-modal-tab:not(.active) {
+  background: var(--primary-lightest);
+  color: var(--primary-dark);
+}
+
+.blog-modal-tab:not(.active):hover {
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  z-index: 1;
+}
+
+/* Blog Post Modal Form Section */
+
+.post-blog-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 3rem;
+}
+
+.post-blog-label {
+  font-size: 1rem;
+  color: var(--theme-black);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.post-blog-input {
+  max-width: 580px;
+  width: 620px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 3px solid var(--primary-light);
+  background-color: var(--theme-white);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--theme-grey);
+  transition: background-color 0.3s, border-color 0.3s;
+  font-family: monospace;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.post-blog-input:focus {
+  border-color: var(--primary-light);
+  outline: none;
+}
+
+.post-blog-input:-webkit-autofill,
+.post-blog-input textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--primary-lightest) inset !important;
+  box-shadow: 0 0 0 1000px var(--primary-lightest) inset !important;
+  -webkit-text-fill-color: var(--theme-black) !important;
+  color: var(--theme-black) !important;
+  border: 3px solid var(--primary-lightest);
+}
+
+.post-blog-form-btn {
+  margin: 0.5rem 0.5rem 0 0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--secondary-light);
+  color: var(--theme-cream);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.18s;
+}
+
+.post-blog-form-btn:hover {
+  background: var(--secondary-dark);
+  color: var(--theme-cream);
+}
+
+.blog-error {
+  color: var(--secondary-dark);
+  margin-bottom: 0.5rem;
+}
+
+
+/* Delete Blog Section */
+
+.delete-blog-table {
+  width: 100%;
+  margin-top: 2rem;
+  background: var(--theme-cream);
+  border-radius: 12px;
+  overflow-x: auto;
+  max-height: 400px;
+  padding-top: 1.5rem;
+}
+
+.delete-blog-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.delete-blog-table th,
+.delete-blog-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 1.05rem;
+}
+
+.delete-blog-table th {
+  background: var(--theme-cream);
+  color: var(--theme-black);
+  font-weight: 700;
+  border-bottom: 2px solid var(--theme-grey);
+  color: var(--theme-grey);
+}
+
+.delete-blog-table tr {
+  border-bottom: 1px solid var(--theme-grey);
+}
+
+.delete-blog-table tr:last-child {
+  border-bottom: none;
+}
+
+.delete-blog-btn {
+  background: var(--secondary-light);
+  color: var(--theme-cream);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.delete-blog-btn:hover {
+  background: var(--secondary-dark);
+}
+
+/* Mobile View */  
+@media (max-width: 800px) {
+
+  .blog-modal {
+    width: 80%;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .post-blog-input {
+    max-width: 100%;
+    width: 85%;
+  }
+
+  .delete-blog-table td:nth-child(2) {
+    max-width: 10ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+}

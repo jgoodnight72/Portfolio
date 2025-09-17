@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './BlogPostCard.css';
 
 function BlogPostCard({ post, previewLength }) {
   return (
-    <Link to={`/blog/${post.id}`} className="blog-link" style={{ textDecoration: 'none' }}>
+    <Link to={`/blog/${post.id}`} style={{ textDecoration: 'none' }}>
       <div className="blog-post">
         <h3>{post.title}</h3>
         <h4><strong>Date:</strong> {post.date}</h4>
