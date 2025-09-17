@@ -1,0 +1,80 @@
+@import '../styles/theme.css';
+
+/* Accordion Basics */
+
+.accordion-title {
+  width: 704px;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--primary-dark);
+  transition: background 0.2s;
+}
+
+.accordion-item.open .accordion-title {
+  background: var(--primary-lightest);
+  color: var(--primary-dark);
+  border-radius: 4px;
+}
+
+.accordion-content {
+  padding: 0.75rem 0.5rem 1.5rem 0;
+  color: var(--theme-black);
+  font-size: 1rem;
+  opacity: 1;
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.accordion-content.fade-in {
+  animation: fadeInAccordion 0.8s;
+}
+
+.accordion-content.fade-out {
+  animation: fadeOutAccordion 0.8s;
+}
+
+@keyframes fadeOutAccordion {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes fadeInAccordion {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.accordion-content ul li {
+  margin-bottom: 0.5rem;
+}
+
+
+/* Mobile View */
+@media (max-width: 800px) {
+  
+  .accordion-title {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  .history {
+    padding: 1rem;
+  }
+
+  .accordion {
+    width: 100%;
+  }
+
+  .accordion-item {
+    width: 100%;
+  }
+  
+  .history-icons {
+    padding-bottom: 0.3rem;
+  }
+
+}
